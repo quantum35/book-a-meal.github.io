@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Book A Meal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/mediaQueries.css" />
+    <!-- <script src="main.js"></script> -->
+</head>
+<body>
+    <header>
+        <div class='myLogo'>
+            <img src="./assets/images/logo-white.png" alt="My Logo" class="logo">
+            <ul class="main-nav">
+                <li><a href="#">Food Deliver</a></li>
+                <li><a href="#">How It Works</a></li>
+                <li><a href="#">Our Cities</a></li>
+                <li><a type='button' id='btnsignUp'>Sign Up</a></li>
+                <li><a type="button" id="btnsignIn">Sign in</a></li>
+            </ul>
+            
+        </div>
+        <!--Modal SignUp-->
+        <div id='myModal' class="modal">
+            <!--Modal Content-->
+            <div class="modal-content">
+                <span class="close">&times</span>
+                <h2 style="align-content: center;">Sign Up</h2>
+                <form action="#">
+                    <label>Username</label>
+                    <input type="text" placeholder="Username">
+                    <label>Password</label>
+                    <input type="password" placeholder="Password">
+                    <button>Sign up</button>
+                </form>
+            </div>
+        </div>
+        <!--End Of My Signup Modal-->
+
+        <!--Modal SignIn-->
+        <div id='myModalSignIn' class="modal">
+            <!--Modal Content-->
+            <div class="modal-content">
+                <span class="Close">&times</span>
+                <p>Some Text in the Sign In Modal</p>
+            </div>
+        </div>
+        <!--End Of My SignIn Modal-->
+
+        <div class="sideMessage">
+            <h1>You Order We Deliver.Beacause We are The Best</h1>
+            <a class='bt bt-full' href="#">I am hungry</a>
+             <a class ='bt bt-ghost' href="#">Show me More</a>
+        </div>
+    </header>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+        var myModalSignIn = document.getElementById('myModalSignIn');
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("btnsignUp");
+        var btnsignIn = document.getElementById("btnsignIn");
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        var Span = document.getElementsByClassName("Close")[0];
+            
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+        btnsignIn.onclick = function() {
+            myModalSignIn.style.display ='block';
+        }
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        Span.onclick =function(){
+            myModalSignIn.style.display = 'none';
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            if(event.target == myModalSignIn){
+                myModalSignIn.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
