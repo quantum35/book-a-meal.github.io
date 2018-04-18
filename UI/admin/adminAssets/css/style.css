@@ -102,7 +102,7 @@ body{
     border: 1px solid #ccc;
     background-color: #545252;
     width: 25%;
-    height: auto;
+    height: 90%;
     position: absolute;
     top: 0;
     left: 0;
@@ -146,7 +146,7 @@ body{
 .containertabcontent{
     position: absolute;
     top: 30%;
-    left: 30%;
+    left: 26%;
     width: 50%;
 }
 .card{
@@ -199,3 +199,87 @@ body{
 .bar-6 { grid-row-start: 70;  width: 100px; background-color: rgb(199, 199, 137)}
 .bar-7 { grid-row-start: 60;  width: 100px; background-color: rgb(47, 203, 65)}
 
+/*Admin CSS for Displaying Orders*/
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td,
+#customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+.priceCust{
+    width: 200px;
+}
+.action_Buttons{
+    list-style: none;
+    width: 200px;
+}
+.action_Buttons li{
+    display: inline;
+}
+.action_Buttons li button{
+    width: 80px;
+    height: 40px;
+    background-color: green;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+.action_Buttons li button:hover{
+     transform: scale(1.5);
+}
+.topMealOptions{
+    margin-bottom: 5%;
+}
+.topMealOptions button{
+    width: 200px;
+    height: 40px;
+    background-color: rgb(14, 108, 159);
+    border-radius: 10px;
+    position: absolute;
+    top: 1%;
+    left: 95%;
+    font-size: 20px;
+}
+.topMealOptions button:hover{
+    background-color: rgb(142, 142, 160);
+     transform: scale(1.5);
+}
+.mealOfTheDay{
+    position: absolute;
+    left: 50%;
+    top: 1%;
+    height: 40px;
+    background-color: rgb(14, 108, 159);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 5px;
+}
+.mealOfTheDay:hover{
+    background-color: rgb(142, 142, 160);
+    transform: scale(1.5);
+}
+.ordersHeader{
+    margin-bottom: 10px;
+}
