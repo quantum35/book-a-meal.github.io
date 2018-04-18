@@ -4,26 +4,24 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #fff;
     color: #555;
     font-weight: 300;
     font-size: 20px;
 }
 header{
-    background-image: linear-gradient(rgb(0, 0, 0,0.4),rgb(0, 0, 0, 0.2)),url('./backgroundimgs/bg.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.612), rgba(7, 7, 7, 0.112)),url('./backgroundimgs/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
 }
 /*Logo aand The Nav Bar*/
-.myLogo{
 
-}
 .logo{
     float: left;
     height: 100px;
     width: auto;
+    border-radius: 200%;
 }
 .main-nav{
     float: right;
@@ -120,11 +118,18 @@ h1{
 /* Modal Content */
 
 .modal-content {
+    border-radius: 10%;
     background-color: #fefefe;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgb(0, 0, 0,0.1)),
+                        url('../images/berlin.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover ;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 40%;
+    color: #fff;
 }
 
 /* The Close Button */
@@ -155,4 +160,32 @@ h1{
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+.modalHeader{
+    text-align: center;
+    font-weight: 400;
+    font-size: 130%;
+    text-decoration: underline;
+}
+.modalForm{
+    display: block;
+    padding: 10px;
+    margin-left: 10%;
+}
+.modalForm input{
+    width: 90%;
+    height: 40px;
+    border-radius: 5px;
+    margin-bottom: 2%;
+    font-size: 20px;
+}
+.btnSignUp{
+    color: #fff;
+    background-color: #E67E22;
+    border-radius: 5px;
+    width: 80px;
+    height: 30px;
+}
+.btnSignUp:hover{
+    background-color: rgb(194, 225, 133);
 }

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Book A Meal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./adminAssets/css/style.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <header>
+       <div class='myTopNav'>
+            <ul class="main-nav">
+                <li><a href="#">Edit Pofile</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Notifications</a></li>
+            </ul>
+            <input type="text" placeholder="Search ..." class="searchPart">
+            <img src="./adminAssets/images/staticAdmin.jpg" alt="Admin Image" class="mypic">
+            <button class="btnAdminProfile">Admin Name</button>
+        </div>
+    </header>
+    <section class='mainSection'>
+        <div class="topBar">
+            Most Buyed Items are Displayed Here.Ther Can Be Moving Carrousel arround from Right To Left.
+            Hello world.Kenya Welcome To Andela
+        </div>
+        <div class="horizontalTab">
+            <div class="tab">
+                <h3 style="color:#fff;margin-bottom: 50px;">This is The main Navigation</h3>
+                <br>
+                <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Dashboard</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">Meal Options</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')">Menu</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')">Profits</button>
+            </div>
+            <div class="containertabcontent">
+                <div id="London" class="tabcontent">
+                    <div class="card card1">
+                        Total Revenue
+                        <span><h2>$40,000</h2></span>
+                    </div>
+                    <div class="card card2">
+                        Expenditure(M)
+                        <span><h2>70</h2></span>
+                    </div>
+                    <div class="card card3">
+                        Total Menu
+                        <span><h2>200</h2></span>
+                    </div>
+                    <div class="card card4">
+                        Total Workers
+                        <span><h2>70</h2></span>
+                    </div>
+                    <!--Graphs-->
+                    <div class="chart">
+                        <div class="bar-1">Weekly Profit</div>
+                        <div class="bar-2">Cust Satisfaction</div>
+                        <div class="bar-3">Menu Sales</div>
+                        <div class="bar-4">Expansions</div>
+                        <div class="bar-5">Sales</div>
+                        <div class="bar-6">Reviews</div>
+                        <div class="bar-7">Visitors</div>
+                        <!--  all the way up to bar-12 -->
+                    </div>
+                </div>
+                <!--End OF First Tab-->
+                <div id="Paris" class="tabcontent">
+                    Everyting Goes Here
+                </div>
+                <div id="Tokyo" class="tabcontent">
+                    <h3>Tokyo</h3>
+                    <p>Tokyo is the capital of Japan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        This is The Footer
+    </footer>
+
+    <script>
+        function openCity(evt, cityName) {
+                // Declare all variables
+                var i, tabcontent, tablinks;
+
+                // Get all elements with class="tabcontent" and hide them
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+
+                // Get all elements with class="tablinks" and remove the class "active"
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+
+                // Show the current tab, and add an "active" class to the link that opened the tab
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+            // Get the element with id="defaultOpen" and click on it
+                document.getElementById("defaultOpen").click();
+    </script>
+</body>
+</html>
