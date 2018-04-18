@@ -28,10 +28,20 @@
             <div class="modal-content">
                 <span class="close">&times</span>
                 <div class="modalHeader">Sign Up</div>
+                <p style="text-align: center;">Please fill this form to create an account</p><hr>
                 <form class='modalForm' action="#">
-                    <input type="text" placeholder="Username"><br>
-                    <input type="password" placeholder="Password"><br>
-                    <button class="btnSignUp">Sign up</button>
+                    <input type="text" placeholder="Username" name="name" required>
+                    <input type="email" placeholder="Email" name="email" required>
+                    <input type="password" placeholder="Password" name="psw" required>
+                    <input type="password" placeholder="Password" name="psw-repeat" required>
+                    <input type="text" placeholder="Address" name="address" required>
+                    <input type="text" placeholder="Phone Number" name="phoneNumber" required>
+                    <p>By creating an account you agree to our
+                        <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                    <div class="clearfix">
+                        <button type="button" onclick="document.getElementById('myModal').style.display='none'" class="cancelbtn">Cancel</button>
+                        <button type="submit" class="signupbtn">Sign Up</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -43,7 +53,16 @@
             <div class="modal-content">
                 <span class="Close">&times</span>
                 <div class="modalHeader">Sign Up</div>
-                <p>Some Text in the Sign In Modal</p>
+                 <p style="text-align: center;">Please fill this form to create an account</p>
+                <hr>
+                <form class='modalForm' action="#">
+                    <input type="text" placeholder="Username or Email" name="usernameOrEmail" required>
+                    <input type="password" placeholder="Password" name="psw" required>
+                    <input type="password" placeholder="Password" name="psw-repeat" required>
+                    <div class="clearfix">
+                        <button type="submit" class="loginbtn">Login Up</button>
+                    </div>
+                </form>
             </div>
         </div>
         <!--End Of My SignIn Modal-->

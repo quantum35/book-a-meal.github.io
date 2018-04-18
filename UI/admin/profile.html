@@ -30,13 +30,13 @@
             <div class="tab">
                 <h3 style="color:#fff;margin-bottom: 50px;">This is The main Navigation</h3>
                 <br>
-                <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Dashboard</button>
-                <button class="tablinks" onclick="openCity(event, 'Paris')">Meal Options</button>
-                <button class="tablinks" onclick="openCity(event, 'Tokyo')">Menu</button>
-                <button class="tablinks" onclick="openCity(event, 'Tokyo')">Profits</button>
+                <button class="tablinks" onclick="openCity(event, 'Dashboard')" id="defaultOpen">Dashboard</button>
+                <button class="tablinks" onclick="openCity(event, 'mealOptions')">Meal Options</button>
+                <button class="tablinks" onclick="openCity(event, 'Orders')">Orders</button>
+                <button class="tablinks" onclick="openCity(event, 'Profits')">Profits</button>
             </div>
             <div class="containertabcontent">
-                <div id="London" class="tabcontent">
+                <div id="Dashboard" class="tabcontent">
                     <div class="card card1">
                         Total Revenue
                         <span><h2>$40,000</h2></span>
@@ -66,13 +66,131 @@
                     </div>
                 </div>
                 <!--End OF First Tab-->
-                <div id="Paris" class="tabcontent">
-                    Everyting Goes Here
+                <div id="mealOptions" class="tabcontent">
+                    <div class="topMealOptions">
+                        <h2>Manage Meal Options</h2>
+                        <button >Add New Meal</button>
+                    </div>
+                    <button class="mealOfTheDay">Set Up Meal of The Day</button>
+                    <table id="customers">
+                        <tr>
+                            <th>Name</th>
+                            <th>Ingidients</th>
+                            <th>Price</th>
+                            <th >Stock</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td>Beaf Rice</td>
+                            <td>Meat,Onions,Tommato,Rice</td>
+                            <td>200 ksh</td>
+                            <td><div class="priceCust">500 Orders</div></td>
+                            <td>
+                                <ul class="action_Buttons">
+                                    <li><button  style="background-color: red;">Delete</button></li>
+                                    <li><button  style="background-color: green">Update</button></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Chips Hen</td>
+                            <td>Pottato Chips,Fried Hen,Tommato,Onions</td>
+                            <td>1000 ksh</td>
+                            <td>
+                                <div class="priceCust">1000 Orders</div>
+                            </td>
+                            <td>
+                                <ul class="action_Buttons">
+                                    <li>
+                                        <button style="background-color: red;">Delete</button>
+                                    </li>
+                                    <li>
+                                        <button style="background-color: green">Update</button>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ugali Sukuma</td>
+                            <td>Ugali,Onions,Tommato,Sukuma</td>
+                            <td>200 ksh</td>
+                            <td>
+                                <div class="priceCust">800 Orders</div>
+                            </td>
+                            <td>
+                                <ul class="action_Buttons">
+                                    <li>
+                                        <button style="background-color: red;">Delete</button>
+                                    </li>
+                                    <li>
+                                        <button style="background-color: green">Update</button>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <div id="Tokyo" class="tabcontent">
-                    <h3>Tokyo</h3>
-                    <p>Tokyo is the capital of Japan.</p>
+                <!--Next Tab-->
+                <div id="Orders" class="tabcontent">
+                    <div class="ordersHeader">
+                        <h2>Orders Made By Customers</h2>
+                    </div>
+                    
+                    <table id="customers">
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Customer Location</th>
+                            <th>Customer Phone</th>
+                            <th>Delivery Date</th>
+                            <th>Order Id</th>
+                            <th>Order Name</th>
+                            <th>Order Price</th>
+                            <th>Order Stock</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td>Alfreds Futterkiste</td>
+                            <td>Nairobi Kenya</td>
+                            <td>0712234532</td>
+                            <td>24/04/2018</td>
+                            <td>RS4462344</td>
+                            <td>Rice Chicken</td>
+                            <td>1000ksh</td>
+                            <td>300</td>
+                            <td>Processed</td>
+                        </tr>
+                        <tr>
+                            <td>Vincent Futterkiste</td>
+                            <td>Kitale Kenya</td>
+                            <td>0745234532</td>
+                            <td>25/04/2018</td>
+                            <td>RG4462344</td>
+                            <td>Ugali Chicken</td>
+                            <td>500ksh</td>
+                            <td>200</td>
+                            <td>In Process</td>
+                        </tr>
+                        <tr>
+                            <td>Gilberto Futterkiste</td>
+                            <td>Nakuru Kenya</td>
+                            <td>0756234532</td>
+                            <td>26/04/2018</td>
+                            <td>RG54462344</td>
+                            <td>Rice Beans</td>
+                            <td>200ksh</td>
+                            <td>200</td>
+                            <td>Processed</td>
+                        </tr>
+                    </table>
+
                 </div>
+                <div id="Profits" class="tabcontent">
+                    <div class="ordersHeader">
+                        <h2>Profits and Losses Made <datalist>23/04/2018</datalist></h2>
+                    </div>
+                        Quantum Computing Kenya At Andela Kenya
+                </div>
+
             </div>
         </div>
     </section>
