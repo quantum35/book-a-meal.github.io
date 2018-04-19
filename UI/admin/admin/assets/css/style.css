@@ -1,0 +1,312 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: rgba(227, 230, 233, 0.947);
+    height: 100vh;
+    color: #555;
+    font-size: 20px;
+    font-weight: 400;
+}
+.logo{
+    height: 100px;
+    border-radius: 200%;
+}
+.myTopNav{
+    background-color: rgba(0, 102, 255, 0.735);
+    height: 8%;
+}
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-right: 20%;
+    margin-top: 1%;
+}
+
+.main-nav li {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.main-nav input {
+    display: inline-block;
+    margin-left: 30px;
+    margin-right: 15%;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.5s;
+}
+.main-nav li a:hover,
+.main-nav li a:active {
+    color: rgb(244, 234, 133);
+    /* background-color: rgb(216, 159, 14); */
+    border-bottom: 2px solid #E67E22;
+}
+.btside-nav{
+    position: absolute;
+    left: 90%;
+    top: 2%;
+    cursor: pointer;
+}
+.bar1,
+.bar2,
+.bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+.card1{
+    background-color: rgba(34, 107, 171, 0.947);
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+}
+.card2 {
+    background-color: rgba(227, 230, 233, 0.947);
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    text-align: center;
+    color: rgb(11, 10, 10);
+    padding: 10px;
+}
+.card3 {
+    background-color: rgba(34, 107, 171, 0.947);
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+}
+.card4 {
+    background-color: rgba(227, 230, 233, 0.947)rg;
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    text-align: center;
+    color: rgb(11, 10, 10);
+    padding: 10px;
+}
+/* The Side Nav  */
+
+.side-nav {
+    display: none;
+    position: fixed;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+/* Side Content */
+.side-content {
+    background-color: #fefefe;
+    margin: auto;
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.profilePic{
+    width: 100px;
+    height: auto;
+    border-radius: 200%;
+
+}
+.side-bar-image {
+    background-image: url('../images/blue-sky.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 30px;
+    margin-left: 0px;
+}
+.side-bar-image p{
+    font-size: 20px;
+    color: rgb(247, 245, 245);
+    margin-bottom: 10px;
+}
+.side-bar-links {
+    list-style: none;
+}
+.side-bar-links li{
+    padding: 5px;
+}
+.side-bar-links li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.side-bar-links li a:hover {
+    background-color: #555;
+    color: white;
+}
+.active {
+    background-color: #4CAF50;
+    color: white;
+}
+.side-bar-links li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+.hold-chart{
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    width: 79%;
+    height: 55%;
+    background-color: aqua;
+}
+.sampleChart{
+    width: 50%;
+    height: 95%;
+    padding: 5px;
+}
+.hold-chart-right{
+    position: absolute;
+    left: 52%;
+    top: 1%;
+    width: 47%;
+    background-color: #fff;
+    overflow: auto;
+}
+.postImg{
+    height: 50px;
+    margin: 1% 1%;
+    border-radius: 200%;
+    padding: 1%;
+    float: left;
+}
+
+/*CSS PRELOADER*/
+/* Preloader */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    /* change if the mask should have another color then white */
+    z-index: 99;
+    /* makes sure it stays on top */
+}
+
+#status {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-image: url('../images/status.gif');
+    /* path to your loading animation */
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: -100px 0 0 -100px;
+    /* is width and height divided by two */
+}
+
+/*PROGRESS BAR*/
+#progressbar,
+#progressbar1,
+#progressbar2,
+#progressbar3 {
+    background-color: black;
+    border-radius: 13px;
+    padding: 1px;
+    margin-top: 15%;
+}
+#progressbar div {
+    background-color: #fff;
+    width: 40%;
+    height: 5px;
+    border-radius: 10px;
+}
+#progressbar1 div {
+    background-color: #fff;
+    width: 30%;
+    height: 5px;
+    border-radius: 10px;
+}
+#progressbar2 div {
+    background-color: #fff;
+    width: 60%;
+    height: 5px;
+    border-radius: 10px;
+}
+#progressbar3 div {
+    background-color: rgb(15, 45, 215);
+    width: 40%;
+    height: 5px;
+    border-radius: 10px;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    background-color: #333;
+    width: 100%;
+    text-align: center;
+    height: 9%;
+    color: #fff;
+    padding: 20px;
+}
+.addbtn{
+    bottom: 5px;
+    right: 5px;
+    position: fixed;
+    width: 50px;
+    border-radius: 200px;
+}
+.ulAdd{
+   display: none;
+   list-style: none;
+}
+.pen{
+    position: absolute;
+    top:80%;
+    left: 96%;
+    height: 50px;
+    border-radius: 200%;
+}
