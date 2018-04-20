@@ -18,7 +18,7 @@
             <li><a href="">Dashboard</a></li>
             <li><a href="./Orders/orders.html">Orders</a></li>
             <li><a href="./Meals/meal.html">Meals</a></li>
-            <li><a href="#">Notifications <sup style="color:red;">233</sup></a></li>
+            <li><a href="">Notifications <sup style="color:red;">233</sup></a></li>
             <li><a href="./Posts/post.html">Posts<sup style="color:red;">900</sup></a></li>
         </ul>
         <img src="./assets/images/icons/safari.png" alt="Logo" class="logo">
@@ -140,6 +140,11 @@
     <script src="./assets/js/canvasjs.min.js"></script>
     <script src="./assets/js/charts.js"></script>
     <script>
+       Window.onclick = function(e) {
+           
+       }
+    </script>
+    <script>
         // Get the modal
             var modal = document.getElementById('myModal');
 
@@ -158,11 +163,11 @@
             span.onclick = function () {
                 modal.style.display = "none";
             }
-
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function (event) {
-                if (event.target == modal) {
+                if (event.target !== btn) {
                     modal.style.display = "none";
+                    console.log('Hello')
                 }
             }
             //PRELOADER
