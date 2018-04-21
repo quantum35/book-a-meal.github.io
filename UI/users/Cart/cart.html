@@ -6,13 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Book A Meal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../../admin/assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="../../admin/Orders/assets/css/orders.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css">
     <link rel="stylesheet" type="text/css" media="screen" href="../Orders/assets/css/orders.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/post.css" />
-    
 </head>
+
+<body>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Book A Meal</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="../../admin/assets/css/style.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="../../admin/Orders/assets/css/orders.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/orders.css">
+    </head>
+
     <body onload="myFunction()" style="margin:0;">
         <div class='myTopNav'>
             <ul class="main-nav">
@@ -20,7 +31,7 @@
                     <a href="../profile.html">Dashboard</a>
                 </li>
                 <li>
-                    <a href="../Orders/orders.html">Orders</a>
+                    <a href="">Orders</a>
                 </li>
                 <li>
                     <a href="../Meals/meal.html">Meals</a>
@@ -33,11 +44,6 @@
                 <li>
                     <a href="../Posts/posts.html">Posts
                         <sup style="color:red;">900</sup>
-                    </a>
-                </li>
-                <li>
-                    <a href="../Cart/cart.html">Cart
-                        <sup style="color:red;">3</sup>
                     </a>
                 </li>
             </ul>
@@ -54,7 +60,7 @@
                 <div class="side-content">
                     <span class="close">&times;</span>
                     <div class="side-bar-image">
-                        <img src="../assets/images/customer-2.jpg" alt="User Pic" class="profilePic">
+                        <img src="./assets/images/customer-2.jpg" alt="User Pic" class="profilePic">
                         <p>Leah Ngaira
                             <br> leahngaira@andela.com
                         </p>
@@ -88,77 +94,57 @@
 
         <div style="display:none;" id="myDiv" class="animate-bottom">
             <div class="userDash">
-                <h1 style="margin-bottom: 2%;">Your Posts</h1>
+                <h1 style="margin-bottom: 2%;">Your Orders</h1>
                 <table id="customers">
-                    <tr class="custMenu" style="width: auto;">
+                    <tr>
+                        <th> Order Id</th>
+                        <th>Image</th>
+                        <th> Order Name</th>
+                        <th>Order Date</th>
+                        <th> Total Price</th>
+                        <th style="width: 400px;">Action</th>
+                    </tr>
+                    <tr class="custMenu">
+                        <td>RE5F67F</td>
                         <td>
                             <img src="../assets/images/1.jpg" alt="">
-                            <h6>1st April 2018</h6>
                         </td>
+                        <td>Rice Beans</td>
+                        <td>22/04/2018</td>
+                        <td>Ksh 200</td>
                         <td>
-                            <sup style="float: left;margin-top: 1px;color: rgb(160, 61, 222);">
-                                <strong>Quantum Coputing</strong> 
-                            </sup><br>
-                            Awsome Meals Thank You i am Your Loyal Customer</td>
-                        <td>
-                            <button class="btn-addcart">reply</button>
+                            <button class="btn-addcart">Confirm Purchase</button>
+                            <button class="btn-removecart">Remove From Cart</button>
                         </td>
                     </tr>
-                    <tr class="custMenu" style="width: auto;">
+                    <tr class="custMenu">
+                        <td>HTDRE5F67F</td>
                         <td>
                             <img src="../assets/images/1.jpg" alt="">
-                            <h6>11th April 2018</h6>
                         </td>
+                        <td>Chips Chicken</td>
+                        <td>22/04/2018</td>
+                        <td>Ksh 200</td>
                         <td>
-                            <sup style="float: left;margin-top: 1px; color: rgb(160, 61, 222);">
-                                <strong>Verencelola Onyash</strong> 
-                            </sup><br>
-                            I Like Their Quick Delivery</td>
-                        <td>
-                            <button class="btn-addcart">reply</button>
+                            <button class="btn-addcart">Confirm Purchase</button>
+                            <button class="btn-removecart">Remove From Cart</button>
                         </td>
                     </tr>
-                    <tr class="custMenu" style="width: auto;">
+                    <tr class="custMenu">
+                        <td>RFF5F67F</td>
                         <td>
                             <img src="../assets/images/1.jpg" alt="">
-                            <h6>21st April 2018</h6>
                         </td>
+                        <td>Chicken Soup</td>
+                        <td>22/04/2018</td>
+                        <td>Ksh 200</td>
                         <td>
-                            <sup style="float: left;margin-top: 1px; color: rgb(160, 61, 222);">
-                                <strong>Jayden Kemboi</strong> 
-                            </sup><br>
-                            Nice Food Me Love it Yummy!!!!</td>
-                        <td>
-                            <button class="btn-addcart">reply</button>
+                            <button class="btn-addcart">Confirm Purchase</button>
+                            <button class="btn-removecart">Remove From Cart</button>
                         </td>
                     </tr>
                 </table>
-                <div>
-                    <button class="btnnew-item" id='btnNewPost'>
-                        New Post
-                    </button>
-                </div>
             </div>
-            <!--My Modal Modal-->
-                <div id="myNewPostModal" class="modal">
-
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <span class="closePost">&times;</span>
-                            <h2>Enter Your New Post</h2>
-                        </div>
-                        <div class="modal-body">
-                            <textarea name="txtnewpost" placeholer='New Post' id="txtnewpost" cols="115" rows="10">
-
-                            </textarea>
-                        </div>
-                        <div class="modal-footer">
-                            <button onclick="alert('Post Submited')">Submit Post</button>
-                        </div>
-                    </div>
-                </div>
-            <!--End Of My Modal-->
             <div class="popular-menus" style="background-color: rgb(200, 215, 179);">
                 <h3 style="margin-top: 10%;margin-bottom: 10px;">Popular Items</h3>
                 <span class="popular-items">
@@ -239,40 +225,12 @@
             }
 
             // When the user clicks anywhere outside of the modal, close it
-            // window.onclick = function (event) {
-                
-            // }
-            //MY MODAL
-         // Get the modal
-            var myNewPostModal = document.getElementById('myNewPostModal');
-
-            // Get the button that opens the modal
-            var btnNewPost = document.getElementById("btnNewPost");
-
-            // Get the <span> element that closes the modal
-            var spanPost = document.getElementsByClassName("closePost")[0];
-
-            // When the user clicks the button, open the modal 
-            btnNewPost.onclick = function() {
-                myNewPostModal.style.display = "block";
-            }
-
-            // When the user clicks on <span> (x), close the modal
-            spanPost.onclick = function() {
-                myNewPostModal.style.display = "none";
-            }
-
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-                if (event.target == myNewPostModal) {
-                    myNewPostModal.style.display = "none";
-                }
+            window.onclick = function (event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
                     console.log('Hello')
                 }
             }
-                            
         </script>
 
     </body>

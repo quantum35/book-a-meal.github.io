@@ -156,3 +156,24 @@
 .popular-items ul li{
     margin-bottom: 20px;
 }
+.meal-day{
+    float:left;
+}
+.meal-day img{
+    height: 60px;
+    border-radius: 200%;
+}
+.meal-day table td button,
+.btnfav {
+    height: 40px;
+    width: 100px;
+    background-color: #3498db;
+    border-radius: 10%;
+    font-size: 15px;
+    color:#fff;
+}
+.meal-day table td button:hover ,
+.btnfav:hover{
+    background-color: #151bce;
+    
+}
