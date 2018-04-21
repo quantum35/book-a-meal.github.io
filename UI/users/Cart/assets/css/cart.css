@@ -1,0 +1,46 @@
+/*Removes The Borders From The Table*/
+#customers td,
+#customers th {
+    border: 0px solid #ddd;
+    padding: 8px;
+}
+.cartImg{
+    height: 60px;
+    border-radius: 10px;
+}
+.btnCart{
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    
+}
+.btnCart:hover{
+    background-color: aqua;
+}
+.cartRemove{
+    height: 40px;
+    width: 80px;
+    background-color: rgba(255, 0, 0, 0.578);
+    color: #fff;
+    font-size: 20px;
+    border-radius: 10px;
+    
+}
+.cartRemove:hover{
+    background-color: purple;
+}
+.purchaseButton{
+    float: right;
+}
+.purchaseButton button{
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: rgba(26, 16, 211, 0.571);
+    font-size: 20px;
+    color: #fff;
+}
+.purchaseButton button:hover{
+    background-color: rgb(60, 208, 60);
+}
