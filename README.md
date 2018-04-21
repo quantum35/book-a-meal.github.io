@@ -1,4 +1,5 @@
-# book-a-meal.github.io
+# BOOK A MEAL
+Book-A-Meal is an application that allows customers to make food orders and helps the food vendor know what the customers want to eat.
 ### This an Attractive simple website build entirely on HTML, CSS and JavaSCript
 
 * I has an Attractive User interface
