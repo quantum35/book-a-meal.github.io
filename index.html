@@ -20,7 +20,6 @@
                 <li><a type='button' id='btnsignUp'>Sign Up</a></li>
                 <li><a type="button" id="btnsignIn">Sign in</a></li>
             </ul>
-            
         </div>
         <!--Modal SignUp-->
         <div id='myModal' class="modal">
@@ -38,8 +37,8 @@
                     <p>By creating an account you agree to our
                         <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
                     <div class="clearfix">
-                        <button type="button" onclick="document.getElementById('myModal').style.display='none'" class="cancelbtn">Cancel</button>
-                        <button type="submit" class="signupbtn">Sign Up</button>
+                        <a href='./UI/users/profile.html' type="button" style='text-decoration: none;' onclick="document.getElementById('myModal').style.display='none'" class="cancelbtn">Cancel</a>
+                        <a href='./UI/users/profile.html' type="submit" style='text-decoration: none;' class="signupbtn">Sign Up</a>
                     </div>
                 </form>
             </div>
@@ -58,7 +57,9 @@
                     <input type="text" placeholder="Username or Email" name="usernameOrEmail" required>
                     <input type="password" placeholder="Password" name="psw" required>
                     <div class="clearfix">
-                        <button type="submit" class="loginbtn">Login Up</button>
+                        <a  href='./UI/users/profile.html' type="submit" style='text-decoration: none;text-align: center;' class="loginbtn">Login</a>
+                        
+                        <a href="./UI/admin/index.html" style="padding: 10px;">Admin Page</a>
                     </div>
                 </form>
             </div>
