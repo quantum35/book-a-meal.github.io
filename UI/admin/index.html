@@ -164,12 +164,7 @@
                 modal.style.display = "none";
             }
             // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                    console.log('Hello')
-                }
-            }
+            
             //PRELOADER
             $(window).on('load', function () { // makes sure the whole site is loaded 
                     $('#status').fadeOut(); // will first fade out the loading animation 
@@ -185,6 +180,10 @@
             window.onclick = function(event){
                 if(event.target!== addBottomBtn){
                      showMeCont.style.display = 'none';
+                }
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    console.log('Hello')
                 }
             }
             $(document).ready(function () {
