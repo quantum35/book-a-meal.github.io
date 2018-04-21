@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/orders.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../users/assets/css/style.css">
 </head>
 
 <body onload="myFunction()" style="margin:0;">
@@ -25,6 +26,19 @@
 
     <div style="display:none;" id="myDiv" class="animate-bottom">
         <h1 style="padding: 10px;">Orders Made By Users</h1>
+        <div class="categoryDiv">
+            <div class="dropdown">
+                <button class="dropbtn">Order Date</button>
+                <div class="dropdown-content">
+                    <a href="#">March Orders</a>
+                    <a href="#">February Orders</a>
+                    <a href="#">January Orders</a>
+                    <a href="#">2017 Orders</a>
+                    <a href="#">2016 Orders</a>
+                    <a href="#">2015 Orders</a>
+                </div>
+            </div>
+        </div>
         <table id="customers">
             <tr>
                 <th> Customer Id</th>
@@ -82,8 +96,8 @@
                 <td>In Process</td>
             </tr>
             <tr>
-                <td>2</td>
-                <td>Philip Cramer</td>
+                <td>5</td>
+                <td>Quantum Gilly</td>
                 <td>Kenya</td>
                 <td>0713748126</td>
                 <td>312 Nairobi</td>
@@ -93,6 +107,9 @@
                 <td>Proccessed</td>
             </tr>
         </table>
+        <div>
+            <h2>Total Profit For The Day</h2><h1>KSH 152,000</h1>
+        </div>
         <div class="pagination">
             <a href="#">&laquo;</a>
             <a href="#">1</a>
@@ -115,7 +132,7 @@
         <ul class="ulAdd" id='ulAdd'>
             <li>
                 <a href="#">
-                    <img src="./assets/images/pen.png" alt="pen" class="pen">
+                    <img src="../../admin/assets/images/pen.png" alt="pen" class="pen">
                 </a>
             </li>
         </ul>
