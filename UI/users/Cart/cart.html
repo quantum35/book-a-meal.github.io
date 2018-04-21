@@ -21,7 +21,7 @@
         <link rel="stylesheet" type="text/css" media="screen" href="../../admin/assets/css/style.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="../../admin/Orders/assets/css/orders.css">
         <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/orders.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/cart.css">
     </head>
 
     <body onload="myFunction()" style="margin:0;">
@@ -31,10 +31,7 @@
                     <a href="../profile.html">Dashboard</a>
                 </li>
                 <li>
-                    <a href="">Orders</a>
-                </li>
-                <li>
-                    <a href="../Meals/meal.html">Meals</a>
+                    <a href="../Orders/orders.html">Orders</a>
                 </li>
                 <li>
                     <a href="">Notifications
@@ -44,6 +41,11 @@
                 <li>
                     <a href="../Posts/posts.html">Posts
                         <sup style="color:red;">900</sup>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Cart/cart.html">Cart
+                        <sup style="color:red;">3</sup>
                     </a>
                 </li>
             </ul>
@@ -94,56 +96,79 @@
 
         <div style="display:none;" id="myDiv" class="animate-bottom">
             <div class="userDash">
-                <h1 style="margin-bottom: 2%;">Your Orders</h1>
+                <h1 style="margin-bottom: 2%;">Your Cart 21<sup>st</sup> April 2018</h1><hr>
                 <table id="customers">
                     <tr>
-                        <th> Order Id</th>
-                        <th>Image</th>
-                        <th> Order Name</th>
-                        <th>Order Date</th>
-                        <th> Total Price</th>
-                        <th style="width: 400px;">Action</th>
+                        <th>Menu Pic</th>
+                        <th>Descripiton</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Action</th>
                     </tr>
-                    <tr class="custMenu">
-                        <td>RE5F67F</td>
+                    <tr>
                         <td>
-                            <img src="../assets/images/1.jpg" alt="">
+                            <img src="./assets/images/1.jpg" alt="Cart Pic" class="cartImg">
                         </td>
-                        <td>Rice Beans</td>
-                        <td>22/04/2018</td>
-                        <td>Ksh 200</td>
+                        <td>Chicken Salad <br>1st Grade Chips</td>
                         <td>
-                            <button class="btn-addcart">Confirm Purchase</button>
-                            <button class="btn-removecart">Remove From Cart</button>
+                            <button class="btnCart"> <span style="color: blue;" id='cartAdd'>+</span></button>
+                            <input type="text" value="1" size="5px" style="height: 20px;" id='cartInput'>
+                            <button class="btnCart"> <span style="color: red;" id ='cartSub'>-</span> </button>
                         </td>
-                    </tr>
-                    <tr class="custMenu">
-                        <td>HTDRE5F67F</td>
+                        <td>$1600</td>
                         <td>
-                            <img src="../assets/images/1.jpg" alt="">
-                        </td>
-                        <td>Chips Chicken</td>
-                        <td>22/04/2018</td>
-                        <td>Ksh 200</td>
-                        <td>
-                            <button class="btn-addcart">Confirm Purchase</button>
-                            <button class="btn-removecart">Remove From Cart</button>
+                            <button class="cartRemove" >Remove</button>
                         </td>
                     </tr>
-                    <tr class="custMenu">
-                        <td>RFF5F67F</td>
+                    <tr>
                         <td>
-                            <img src="../assets/images/1.jpg" alt="">
+                            <img src="./assets/images/2.jpg" alt="Cart Pic" class="cartImg">
                         </td>
-                        <td>Chicken Soup</td>
-                        <td>22/04/2018</td>
-                        <td>Ksh 200</td>
+                        <td>Rice Salad <br>1st Grade Beef</td>
                         <td>
-                            <button class="btn-addcart">Confirm Purchase</button>
-                            <button class="btn-removecart">Remove From Cart</button>
+                            <button class="btnCart"> <span style="color: blue;" id='cartAdd1'>+</span></button>
+                            <input type="text" value="1" size="5px" style="height: 20px;" id='cartInput1'>
+                            <button class="btnCart"> <span style="color: red;" id ='cartSub1'>-</span> </button>
+                        </td>
+                        <td>$1500</td>
+                        <td>
+                            <button class="cartRemove" >Remove</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="./assets/images/1.jpg" alt="Cart Pic" class="cartImg">
+                        </td>
+                        <td>Chicken Salad <br>A Grade Chips</td>
+                        <td>
+                            <button class="btnCart"> <span style="color: blue;">+</span></button>
+                            <input type="text" value="1" size="5px" style="height: 20px;" >
+                            <button class="btnCart"> <span style="color: red;">-</span> </button>
+                        </td>
+                        <td>$1200</td>
+                        <td>
+                            <button class="cartRemove" >Remove</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="./assets/images/1.jpg" alt="Cart Pic" class="cartImg">
+                        </td>
+                        <td>Ugali  <br>1st Grade Sukuma</td>
+                        <td>
+                            <button class="btnCart"> <span style="color: blue;">+</span></button>
+                            <input type="text" value="1" size="5px" style="height: 20px;" >
+                            <button class="btnCart"> <span style="color: red;">-</span> </button>
+                        </td>
+                        <td>$900</td>
+                        <td>
+                            <button class="cartRemove" >Remove</button>
                         </td>
                     </tr>
                 </table>
+                <div class="purchaseButton">
+                    <button>Purchase</button>
+                </div>
             </div>
             <div class="popular-menus" style="background-color: rgb(200, 215, 179);">
                 <h3 style="margin-top: 10%;margin-bottom: 10px;">Popular Items</h3>
@@ -230,6 +255,27 @@
                     modal.style.display = "none";
                     console.log('Hello')
                 }
+            }
+            var btnAddCart = document.getElementById('cartAdd');
+            var btnSubCart = document.getElementById('cartSub');
+            var inputCart = document.getElementById('cartInput');
+
+            var btnAddCart1 = document.getElementById('cartAdd1');
+            var btnSubCart1 = document.getElementById('cartSub1');
+            var inputCart1 = document.getElementById('cartInput1');
+
+            btnAddCart.onclick = function(){
+                inputCart.value = parseInt(inputCart.value) + 1;
+            }
+            btnSubCart.onclick = function(){
+                inputCart.value = parseInt(inputCart.value) - 1;
+            }
+            
+            btnAddCart1.onclick = function(){
+                inputCart1.value = parseInt(inputCart1.value) + 1;
+            }
+            btnSubCart1.onclick = function(){
+                inputCart1.value = parseInt(inputCart1.value) - 1;
             }
         </script>
 
