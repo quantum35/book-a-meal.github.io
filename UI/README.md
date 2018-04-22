@@ -4,7 +4,7 @@ This Project Was created Using  Stories From Pivotal Tracker [here](https://www.
 
 
 ### Introduction
-This web Project is created to easen the work of a Customer by simply Ordering Food Of Choice From The Comform Of his or her Home Then The caterer(admin) will Recieve the Order and Deliver IT To the Customer in Time.
+This web Project is created to Easen the work of a Customer by simply Ordering Food Of Choice From The Comform Of his or her Home Then The caterer(admin) will Recieve the Order and Deliver IT To the Customer in Time.
 This Project is Composed Of Two Parts
 
 * ClientSide
