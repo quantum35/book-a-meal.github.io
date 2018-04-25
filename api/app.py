@@ -1,83 +1,83 @@
 from flask import Flask, request, make_response
 from flask_restful import Resource,Api
+from flask_jwt import JWT,jwt_required 
+from security import authenticate,identity
 
 app = Flask(__name__)
+app.secret_key = 'Quantum21345'
 api = Api(app)
 
+jwt = JWT(app,  authenticate, identity) #creates endpoint /auth
 
+#initialize out JWT Token that our app _is going to use
+database =[]
 class login(Resource):
     def post(self):
         data = request.get_json()
-        email = data['email']
-        password = data['password']
-        return {'username':'quantum',
-                'email':'quantum@gmail.com',
-                'password':'password'
-                },201
+        db={
+            'username':data['username'],
+            'email':data['email'],
+            'password':data['password']
+        }
+        return db,201
 
 
 class signup(Resource):
     def post(self):
         data = request.get_json()
-        username = data['username']
-        email = data['email']
-        password = data['password']
-        return {'username':'quantum',
-                'email':'quantum@gmail.com',
-                'password':'password'
-                },201
+        db = {'username':data['username'],
+                'email':data['email'],
+                'password':data['password']
+                }
+        return db,201
 #Admin
+
 class addNewMeal(Resource):
     def post(self):
         data = request.get_json()
-        meal_id = data['meal_id']
-        name = data['name']
-        price = data['price']
-        return {'meal_id':'meal1',
-                'name':'Chips',
-                'price':'1000'
-                },201
+        db={
+            'meal_id':data['meal_id'],
+            'name':data['name'],
+            'price':data['price']
+        }
+        return db,201
 class UpdatemealOption(Resource):
     def put(self):
         data11 = request.get_json()
-        meal_id = data11['meal_id']
-        name = data11['name']
-        price = data11['price']
-        return {
-                'meal_id':'meal1',
-                'name':'Ugali',
-                'price':'500'
-                },201
+        db ={'meal_id':data11['meal_id'],
+              'name':data11['name'],
+              'price':data11['price']
+            }
+        return db,201
 class modifyMeal(Resource):
     def put(self):
-        meal_id = 'meal1'
-        name = 'Ugali'
-        price = '500'
-        return {
-                'meal_id':'meal1',
-                'name':'Ugali',
-                'price':'500'
-                },201
+        data4 = request.get_json()
+        db = {
+            'name':data4['name'],
+            'price':data4['price']
+        }
+        return db,201
+
 class deleteMealOption(Resource):
     def delete(self):
         data1 = request.get_json()
-        meal_id = data1['meal_id']
-        name = data1['name']
-        price = data1['price']
-        return { 'message':'Meal Successfuly Deleted'
-                },200
+        db =  {
+            'meal_id':data1['meal_id'],
+            'name':data1['name'],
+            'price':data1['price']
+        }
+        return db,200
         
 
 class setUpmealDay(Resource):
      def post(self):
         data1 = request.get_json()
-        meal_id = data1['meal_id']
-        name = data1['name']
-        price = data1['price']
-        return {'meal_id':'meal1',
-                'name':'Chips',
-                'price':'1000'
-                },201
+        db ={
+            'meal_id':data1['meal_id'],
+            'name':data1['name'],
+            'price':data1['price']
+        }
+        return db,201
 class checkOrdersMadebyUser(Resource):
     def get(self):
         return {'message':'Here are The Orders Made by users'}
@@ -97,22 +97,20 @@ class custCheckMenu(Resource):
         return{'message':'Here is your Menu Of the Day'}
     def post(self):
         data = request.get_json()
-        name = data['name']
-        price = data['price']
-        return {'name':'ugali',
-                'price':'1000'
-                },201
+        db ={
+            'name':data['name'],
+            'price':data['price']
+        }
+        return db,201
 class updateOrder(Resource):
      def put(self):
         data12 = request.get_json()
-        id = '1',
-        name = 'Rice'
-        price = '400'
-        return {
-                'id':'1',
-                'name':'Rice',
-                'price':'400'
-                },201
+        db = {
+            'id':data12['id'],
+            'name':data12['name'],
+            'price':data12['price']
+        }
+        return db,201
 
 class checkOrderHistory(Resource):
     def get(self):
