@@ -40,10 +40,10 @@ class AdmMealsOptions(Resource):
                 return {'message':'You should Be admin to view this'}
             return db,200 
 
-    def post(self):
+    def post(self,id):
            data = request.get_json(force= True)
            db = {
-               'id':data['id'],
+               'id':id,
                'name':data['name'],
                'price':data['price'],
                'role':data['role']
@@ -66,9 +66,9 @@ class AdmMealsOptions(Resource):
             db.update(data)
         return db,201
 #Filter returns an objects that is converted to list by the list function
-    def delete(self):
+    def delete(self,id):
         data = request.get_json()
-        db = list(filter(lambda x:x['id'] != data['id'],tblMeals))   
+        db = list(filter(lambda x:x['id'] != id,tblMeals))   
         tblMeals.append(db)
         return db,200   
 
@@ -146,11 +146,11 @@ class CustCheckMenu(Resource):
     def get(self):
         return tblmenu,200
         
-    def post(self):
+    def post(self,id):
         data = request.get_json()
         db = {
             'customer':{
-                'id':data['id'],
+                'id':id,
                 'name':data['name'],
                 'content':data['content'],
                 'price':data['price']
@@ -163,10 +163,10 @@ class CustCheckMenu(Resource):
 
 api.add_resource(Signup,'/api/v1/auth/signup')
 api.add_resource(Login,'/api/v1/auth/login')
-api.add_resource(AdmMealsOptions,'/api/v1/meals/')
+api.add_resource(AdmMealsOptions,'/api/v1/meals/','/api/v1/meals/<int:id>')
 api.add_resource(AdmMenu,'/api/v1/menu/')
 api.add_resource(AdmCheckOrders,'/api/v1/orders/')
-api.add_resource(CustCheckMenu,'/api/v1/user/menu/')
+api.add_resource(CustCheckMenu,'/api/v1/user/menu/','/api/v1/user/menu/<int:id>')
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)

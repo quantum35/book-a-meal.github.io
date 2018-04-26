@@ -39,7 +39,7 @@ class TestFlaskApp(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         
     def test_admPostMealsOptions(self):
-        response = self.app.post('/api/v1/meals/', data = json.dumps(self.data1) , content_type = 'application/json')
+        response = self.app.post('/api/v1/meals/<int:id>', data = json.dumps(self.data1) , content_type = 'application/json')
         result = json.loads(response.data)
         self.assertEqual(result["id"], "1")
         self.assertEqual(result["name"], "Chips")
@@ -121,7 +121,7 @@ class TestFlaskApp(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_Post_AdminCheckOrders(self):
-        response = self.app.post('/api/v1/user/menu/', data = json.dumps(self.data4) , content_type = 'application/json')
+        response = self.app.post('/api/v1/user/menu/<int:id>', data = json.dumps(self.data4) , content_type = 'application/json')
         result = json.loads(response.data)
         self.assertEqual(result["id"], "1")
         self.assertEqual(result["name"], "Today's Menu")
