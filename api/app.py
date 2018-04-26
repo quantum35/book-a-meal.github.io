@@ -1,97 +1,119 @@
 from flask import Flask, request
 from flask_restful import Api,Resource
+from flask_jwt import JWT
 
 app = Flask(__name__)
 api = Api(app)
 
-database = []
-
-class signup(Resource):
+tabelUsers = []
+tblMeals = []
+tblOrders = []
+tblMenu = []
+tblmenu = []
+class Signup(Resource):
     def post(self):
         data = request.get_json(force= True)
         db = {
             "name":data["name"],
             "email":data["email"],
-            "password":data["password"]
+            "password":data["password"],
+            'role':data['role']
         }
-        database.append(db)
+        tabelUsers.append(db)
         return db,201
     def get(self):
-        return {'data':database}
+        return {'data':tabelUsers}
 
-class login(Resource):
+class Login(Resource):
     def post(self):
         data = request.get_json(force= True)
-        for db in database:
+        for db in tabelUsers:
             if db['name'] == data['name'] and db['password'] == data['password']:
                 return db,200
         return {'Message':'Please Sign Up'},404 
+        
 #Admin can addnew item,delete,Update
-class admMealsOptions(Resource):
+class AdmMealsOptions(Resource):
     def get(self):
-        return database,200
+        for db in tblMeals:
+            if db['role'] != 'admin':
+                return {'message':'You should Be admin to view this'}
+            return db,200 
+
     def post(self):
            data = request.get_json(force= True)
            db = {
                'id':data['id'],
                'name':data['name'],
-               'price':data['price']
+               'price':data['price'],
+               'role':data['role']
            }
-           database.append(db)
+           tblMeals.append(db)
            return db,201
+
     def put(self):
         data = request.get_json()
-        db = next(filter(lambda x:x['id'] == data['id'],database),None)
+        db = next(filter(lambda x:x['id'] == data['id'],tblMeals),None)
         if db is None:
             db = {
                 'id':data['id'],
                 'name':data['name'],
-                'price':data['price']
+                'price':data['price'],
+                'role':data['role']
             }
-            database.append(db)
+            tblMeals.append(db)
         else:
             db.update(data)
         return db,201
+#Filter returns an objects that is converted to list by the list function
     def delete(self):
         data = request.get_json()
-        db = list(filter(lambda x:x['id'] != data['id'],database))   
-        database.append(db)
-        print(db)
-        return db,201        
+        db = list(filter(lambda x:x['id'] != data['id'],tblMeals))   
+        tblMeals.append(db)
+        return db,200   
 
-class admMenu(Resource):
+class AdmMenu(Resource):
     def get(self):
-        return database
+        return tblMenu
+
     def post(self):
         data = request.get_json()
         db = {
-            'id':data['id'],
-            'name':data['name'],
-            'content':data['content']
+            'caterer':{
+                'id':data['id'],
+                'name':data['name'],
+                'content':data['content'],
+                'price':data['price']
+            }
+            
         }
-        database.append(db)
+        tblMenu.append(db)
         return db,200
+
     def put(self):
         data = request.get_json()
-        db = next(filter(lambda x:x['id'] == data['id'],database),None)
+        db = next(filter(lambda x:x['id'] == data['id'],tblMenu),None)
         if db is None:
             db = {
                 'id':data['id'],
                 'name':data['name'],
-                'content':data['content']
+                'content':data['content'],
+                'price':data['price']
             }
-            database.append(db)
+            tblMenu.append(db)
         else:
             db.update(data)
         return db,201
     def delete(self):
         data = request.get_json()
-        db = list(filter(lambda x:x['id'] != data['id'],database))   
-        database.append(db)
+        db = list(filter(lambda x:x['id'] != data['id'],tblMenu))   
+        tblMenu.append(db)
         return db,200  
-class admCheckOrders(Resource):
+
+class AdmCheckOrders(Resource):
     def get(self):
-        return database
+        return tblOrders
+
     def post(self):
         data = request.get_json()
         db = {
@@ -99,45 +121,52 @@ class admCheckOrders(Resource):
             'name':data['name'],
             'price':data['price']
         }
-        database.append(db)
+        tblOrders.append(db)
         return db,201
+
     def put(self):
         data = request.get_json()
-        db = next(filter(lambda x:x['id'] == data['id'],database),None)
+        db = next(filter(lambda x:x['id'] == data['id'],tabelUsers),None)
         if db is None:
             db = {
                 'id':data['id'],
                 'name':data['name'],
                 'price':data['price']
             }
-            database.append(db)
+            tblOrders.append(db)
         else:
             db.update(data)
         return db,201
+
 
 #Client/Customers Do-> see menu of the day-get 
                        #Select menu Post
 
-class custCheckMenu(Resource):
+class CustCheckMenu(Resource):
     def get(self):
-        return database
+        return tblmenu,200
+        
     def post(self):
         data = request.get_json()
         db = {
-            'id':data['id'],
-            'name':data['name'],
-            'price':data['price']
+            'customer':{
+                'id':data['id'],
+                'name':data['name'],
+                'content':data['content'],
+                'price':data['price']
+            }
+            
         }
-        database.append(db)
+        tblMenu.append(db)
         return db,201
 
 
-api.add_resource(signup,'/api/v1/auth/signup')
-api.add_resource(login,'/api/v1/auth/login')
-api.add_resource(admMealsOptions,'/api/v1/meals/')
-api.add_resource(admMenu,'/api/v1/menu/')
-api.add_resource(admCheckOrders,'/api/v1/orders/')
-api.add_resource(custCheckMenu,'/api/v1/user/menu/')
+api.add_resource(Signup,'/api/v1/auth/signup')
+api.add_resource(Login,'/api/v1/auth/login')
+api.add_resource(AdmMealsOptions,'/api/v1/meals/')
+api.add_resource(AdmMenu,'/api/v1/menu/')
+api.add_resource(AdmCheckOrders,'/api/v1/orders/')
+api.add_resource(CustCheckMenu,'/api/v1/user/menu/')
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
