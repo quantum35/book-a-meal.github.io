@@ -70,11 +70,42 @@ class admMenu(Resource):
         }
         database.append(db)
         return db,200
+    def put(self):
+        data = request.get_json()
+        db = next(filter(lambda x:x['id'] == data['id'],database),None)
+        if db is None:
+            db = {
+                'id':data['id'],
+                'name':data['name'],
+                'content':data['content']
+            }
+            database.append(db)
+        else:
+            db.update(data)
+        return db,201
+    def delete(self):
+        data = request.get_json()
+        db = list(filter(lambda x:x['id'] != data['id'],database))   
+        database.append(db)
+        return db,200  
+class admCheckOrders(Resource):
+    def get(self):
+        return database
+    def post(self):
+        data = request.get_json()
+        db = {
+            'id':data['id'],
+            'name':data['name'],
+            'price':data['price']
+        }
+        database.append(db)
+        return db,201
 
 api.add_resource(signup,'/api/v1/auth/signup')
 api.add_resource(login,'/api/v1/auth/login')
 api.add_resource(admMealsOptions,'/api/v1/meals/')
 api.add_resource(admMenu,'/api/v1/menu/')
+api.add_resource(admCheckOrders,'/api/v1/orders/')
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)

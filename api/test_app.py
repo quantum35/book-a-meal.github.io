@@ -10,6 +10,7 @@ class TestFlaskApp(unittest.TestCase):
         self.data = {"name":"quantum", "email":"quantum@gmail.com","password":"secret"}
         self.data1 = {"id":"1","name":"Chips","price":"1000"}
         self.data2 = {"id":"1","name":"Sea food","content":"Lobster,Prawn"}
+        self.data3 = {"id":"1","name":"Order1","price":"15,000"}
 
     def test_signup(self):
         response = self.app.post('/api/v1/auth/signup', data = json.dumps(self.data) , content_type = 'application/json')
