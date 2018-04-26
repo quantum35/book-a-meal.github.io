@@ -56,7 +56,8 @@ class admMealsOptions(Resource):
         data = request.get_json()
         db = list(filter(lambda x:x['id'] != data['id'],database))   
         database.append(db)
-        return db,200         
+        print(db)
+        return db,201        
 
 class admMenu(Resource):
     def get(self):
