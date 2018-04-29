@@ -2,6 +2,14 @@
 Book-A-Meal is an application that allows customers to make food orders and helps the food vendor know what the customers want to eat.
 This Project Was created Using  Stories From Pivotal Tracker [here](https://www.pivotaltracker.com/n/projects/2165741) intergrated to Github Using Its API Token
 
+[![Build Status](https://travis-ci.org/codingedward/book-a-meal.svg?branch=feature%2Fapi)](https://travis-ci.org/codingedward/book-a-meal)
+[![Coverage Status](https://coveralls.io/repos/github/codingedward/book-a-meal/badge.svg?branch=feature%2Fapi)](https://coveralls.io/github/codingedward/book-a-meal?branch=feature%2Fapi)
+[![PEP8](https://img.shields.io/badge/code%20style-pep8-green.svg)](https://www.python.org/dev/peps/pep-0008/)
+<a href="http://flask.pocoo.org/"><img
+   src="http://flask.pocoo.org/static/badges/made-with-flask-s.png"
+   border="0"
+   alt="made with Flask"
+   title="made with Flask"></a>
 
 ### Introduction
 This web Project is created to Easen the work of a Customer by simply Ordering Food Of Choice From The Comform Of his or her Home Then The caterer(admin) will Recieve the Order and Deliver IT To the Customer in Time.
