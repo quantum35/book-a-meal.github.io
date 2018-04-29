@@ -1,24 +1,21 @@
-'''test_api endpoints'''
 import unittest
 import json
 from app import app
 
 
-class TestApiEndpoints(unittest.TestCase):
-    '''class to tests app.py'''
-
+class FlaskApiEndpoints(unittest.TestCase):
+   
     def setUp(self):
-        '''create a test client'''
         self.tester = app.test_client()
-        #register user first
+        #User Registration
         reg_data = json.dumps(
-            {"user_id": 1, "username": "Queer", "password": "#12345", "admin": False})
+            {"user_id": 1, "username": "Quantum", "password": "secret", "admin": False})
         response = self.tester.post(
             '/api/v1/auth/signup', data=reg_data, content_type='application/json')
         self.assertEqual(response.status_code, 200)
 
         #Login the user
-        log_data = json.dumps({"username": "Queer", "password": "#12345"})
+        log_data = json.dumps({"username": "Quantum", "password": "secret"})
         response1 = self.tester.post(
             '/api/v1/auth/login', data=log_data, content_type='application/json')
         self.assertEqual(response1.status_code, 200)
@@ -32,31 +29,28 @@ class TestApiEndpoints(unittest.TestCase):
         }
 
     def test_get_users(self):
-        #Test user access to the menu
+        #Test for checking the status code of users
         response = self.tester.get('/api/v1/users', headers=self.headers)
         self.assertEqual(response.status_code, 200)
 
-    #User activities
+    #Users
 
     def test_user_registration(self):
-        '''Test user registration(POST)'''
         reg_data = json.dumps(
-            {"user_id": 1, "username": "Queer", "password": "#12345", "admin": False})
+            {"user_id": 1, "username": "Quantum", "password": "secret", "admin": False})
         response = self.tester.post(
             '/api/v1/auth/signup', data=reg_data, content_type='application/json')
         self.assertEqual(response.status_code, 200)
 
     def test_user_login(self):
-        #Test the user login functionality
-        #register user first
         reg_data = json.dumps(
-            {"user_id": 1, "username": "Queer", "password": "#12345", "admin": False})
+            {"user_id": 1, "username": "Quantum", "password": "secret", "admin": False})
         response = self.tester.post(
             '/api/v1/auth/signup', data=reg_data, content_type='application/json')
         self.assertEqual(response.status_code, 200)
 
         #Login the user
-        log_data = json.dumps({"username": "Queer", "password": "#12345"})
+        log_data = json.dumps({"username": "Quantum", "password": "secret"})
         response1 = self.tester.post(
             '/api/v1/auth/login', data=log_data, content_type='application/json')
         self.assertEqual(response1.status_code, 200)
@@ -100,8 +94,8 @@ class TestApiEndpoints(unittest.TestCase):
             '/api/v1/menu/', data=meal_data, headers=self.headers)
         self.assertEqual(response.status_code, 200)
 
-        order_data = json.dumps({"meal_id": 1, "meal_name": "Rice", "price": 200,
-                                 "category": "dinner", "day": "none", "quantity": 1, "username": "ian"})
+        order_data = json.dumps({"meal_id": 1, "meal_name": "Rice", "price": 2000,
+                                 "category": "dinner", "day": "none", "quantity": 1, "username": "Leah"})
 
         make_order = self.tester.post(
             '/api/v1/orders', data=order_data, headers=self.headers)
