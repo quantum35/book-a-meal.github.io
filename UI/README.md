@@ -24,5 +24,6 @@ Once The User Has Loged in.They Will see Their Respective Profile
 * Little Knowledge of **Html**,**CSS** and **JS**
 * Text Editor I Recomend Visiual Studio Code
 
+[![Coverage Status](https://coveralls.io/repos/github/quantum35/Book-A-Meal-Backup/badge.svg?branch=feature)](https://coveralls.io/github/quantum35/Book-A-Meal-Backup?branch=feature)
 # Contribution
 Fork my Git to Contribute and Feel at Home Customising it to your Preffered Layout
