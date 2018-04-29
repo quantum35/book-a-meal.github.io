@@ -2,20 +2,21 @@ import unittest
 import json
 from app import app
 
-
-class FlaskApiEndpoints(unittest.TestCase):
-   
+ 
+class TestFlaskAppEndpoints(unittest.TestCase):
+    
     def setUp(self):
+        
         self.tester = app.test_client()
-        #User Registration
+        #register user first
         reg_data = json.dumps(
-            {"user_id": 1, "username": "Quantum", "password": "secret", "admin": False})
+            {"user_id": 1, "username": "Quantum", "password": "pass123", "admin": False})
         response = self.tester.post(
             '/api/v1/auth/signup', data=reg_data, content_type='application/json')
         self.assertEqual(response.status_code, 200)
 
         #Login the user
-        log_data = json.dumps({"username": "Quantum", "password": "secret"})
+        log_data = json.dumps({"username": "Quantum", "password": "pass123"})
         response1 = self.tester.post(
             '/api/v1/auth/login', data=log_data, content_type='application/json')
         self.assertEqual(response1.status_code, 200)
@@ -29,41 +30,41 @@ class FlaskApiEndpoints(unittest.TestCase):
         }
 
     def test_get_users(self):
-        #Test for checking the status code of users
+        #Test user access to the menu
         response = self.tester.get('/api/v1/users', headers=self.headers)
         self.assertEqual(response.status_code, 200)
 
-    #Users
+    #User activities
 
-    def test_user_registration(self):
+    def test_user_signup(self):
         reg_data = json.dumps(
-            {"user_id": 1, "username": "Quantum", "password": "secret", "admin": False})
+            {"user_id": 1, "username": "Quantum", "password": "pass123", "admin": False})
         response = self.tester.post(
             '/api/v1/auth/signup', data=reg_data, content_type='application/json')
         self.assertEqual(response.status_code, 200)
 
     def test_user_login(self):
+        #Test the user login 
+        #register user first
         reg_data = json.dumps(
-            {"user_id": 1, "username": "Quantum", "password": "secret", "admin": False})
+            {"user_id": 1, "username": "Quantum", "password": "pass123", "admin": False})
         response = self.tester.post(
             '/api/v1/auth/signup', data=reg_data, content_type='application/json')
         self.assertEqual(response.status_code, 200)
 
         #Login the user
-        log_data = json.dumps({"username": "Quantum", "password": "secret"})
+        log_data = json.dumps({"username": "Quantum", "password": "pass123"})
         response1 = self.tester.post(
             '/api/v1/auth/login', data=log_data, content_type='application/json')
         self.assertEqual(response1.status_code, 200)
 
-    def test_user_can_get_menu(self):
-        #Test user access to the menu
+    def test_user_get_menu(self):
         response = self.tester.get('/api/v1/menu/', headers=self.headers)
         self.assertEqual(response.status_code, 200)
 
-    def test_user_can_make_an_order(self):
-        #Test the user's order capability
+    def test_user_post_order(self):
         meal_data = json.dumps(
-            {"meal_id": 1, "meal_name": "Rice", "price": 200, "category": "dinner", "day": "none"})
+            {"meal_id": 1, "meal_name": "Chips", "price": 2000, "category": "dinner", "day": "none"})
         response = self.tester.post(
             '/api/v1/meals/', data=meal_data, headers=self.headers)
         self.assertEqual(response.status_code, 200)
@@ -82,8 +83,7 @@ class FlaskApiEndpoints(unittest.TestCase):
             '/api/v1/orders', data=order_data, headers=self.headers)
         self.assertEqual(make_order.status_code, 200)
 
-    def test_user_can_modify_an_order(self):
-        #Test the edit order ability
+    def test_user_put_order(self):
         meal_data = json.dumps(
             {"meal_id": 1, "meal_name": "Rice", "price": 200, "category": "dinner", "day": "none"})
         response = self.tester.post(
@@ -94,8 +94,8 @@ class FlaskApiEndpoints(unittest.TestCase):
             '/api/v1/menu/', data=meal_data, headers=self.headers)
         self.assertEqual(response.status_code, 200)
 
-        order_data = json.dumps({"meal_id": 1, "meal_name": "Rice", "price": 2000,
-                                 "category": "dinner", "day": "none", "quantity": 1, "username": "Leah"})
+        order_data = json.dumps({"meal_id": 1, "meal_name": "Rice", "price": 200,
+                                 "category": "dinner", "day": "none", "quantity": 1, "username": "ian"})
 
         make_order = self.tester.post(
             '/api/v1/orders', data=order_data, headers=self.headers)
@@ -106,19 +106,18 @@ class FlaskApiEndpoints(unittest.TestCase):
                               data=mod_order, headers=self.headers)
         self.assertEqual(res.status_code, 200)
 
-    def test_caterer_get_all_meal_options(self):
-        #test that api can get all books (GET request)
+    def test_caterer_get_mealoptions(self):
         response1 = self.tester.get('/api/v1/meals/', headers=self.headers)
         self.assertEqual(response1.status_code, 200)
 
-    def test_caterer_can_add_a_meal_option(self):
+    def test_caterer_post_mealoption(self):
         meal_data = json.dumps(
             {"meal_id": 1, "meal_name": "Rice", "price": 200, "category": "dinner", "day": "none"})
         response = self.tester.post(
             '/api/v1/meals/', data=meal_data, headers=self.headers)
         self.assertEqual(response.status_code, 200)
 
-    def test_caterer_can_update_meal_option_by_id(self):
+    def test_caterer_put_meal_option_by_id(self):
         meal_data = json.dumps(
             {"meal_id": 1, "meal_name": "Rice", "price": 200, "category": "dinner", "day": "none"})
         response = self.tester.post(
@@ -131,7 +130,7 @@ class FlaskApiEndpoints(unittest.TestCase):
             '/api/v1/meals/1', data=update_data, headers=self.headers)
         self.assertEqual(res.status_code, 200)
 
-    def test_caterer_can_delete_meal_option_by_id(self):
+    def test_caterer_delete_mealoption_by_id(self):
         meal_data = json.dumps(
             {"meal_id": 8, "meal_name": "Rice", "price": 200, "category": "dinner", "day": "none"})
         response = self.tester.post(
@@ -141,7 +140,7 @@ class FlaskApiEndpoints(unittest.TestCase):
         res = self.tester.delete('/api/v1/meals/8', headers=self.headers)
         self.assertEqual(res.status_code, 200)
 
-    def test_caterer_can_setup_menu(self):
+    def test_caterer_setup_menu(self):
         meal_data = json.dumps(
             {"meal_id": 1, "meal_name": "Rice", "price": 200, "category": "dinner", "day": "none"})
         response = self.tester.post(
@@ -152,7 +151,7 @@ class FlaskApiEndpoints(unittest.TestCase):
             '/api/v1/menu/', data=meal_data, headers=self.headers)
         self.assertEqual(setup.status_code, 200)
 
-    def test_caterer_can_get_orders(self):
+    def test_caterer_get_orders(self):
         res = self.tester.get('/api/v1/orders', headers=self.headers)
         self.assertEqual(res.status_code, 200)
 

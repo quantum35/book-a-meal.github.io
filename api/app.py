@@ -6,7 +6,7 @@ import jwt
 
 app = Flask(__name__)
 
-
+ 
 def token_required(f):
 	@wraps(f)
 	def decorated(*args, **kwargs):
@@ -19,7 +19,7 @@ def token_required(f):
 			return jsonify({"message": "Token is missing!"}), 401
 
 		try:
-			data = jwt.decode(token, '$%SECRET_KEY@#^@$')
+			data = jwt.decode(token, 'Quantum#@$%^^&$#@@')
 			active = [u for u in User().users if u["user_id"]
                             == data["user_id"]]
 			current_user = active[0]
@@ -33,11 +33,11 @@ def token_required(f):
 
 @app.route('/api/v1/users', methods=['GET'])
 @token_required
-def get_users(current_user):
-    
+def users(current_user):
+
 	if not current_user['admin']:
-		return ('You Dont Have Enough Privileges to View userlist @ {}'.format(current_user['username']))
-    
+		return jsonify({'Message':'You have no privilages to view this'})
+
 	users = User().show_users()
 	return jsonify({"message": users})
 
@@ -51,13 +51,13 @@ def signup():
 
 @app.route('/api/v1/auth/login', methods=['POST'])
 def login():
-	login = User().login(request.json['username'], request.json['password'])
-	return jsonify({"message": login})
+	loging = User().login(request.json['username'], request.json['password'])
+	return jsonify({"message": loging})
 
 
 @app.route('/api/v1/auth/logout', methods=['POST'])
 @token_required
-def logout_user(current_user):
+def user_logout(current_user):
 	logouts = User().logout()
 	return jsonify({"message": logouts})
 
@@ -66,7 +66,7 @@ def logout_user(current_user):
 @token_required
 def get_all_meals(current_user):
 	if not current_user['admin']:
-		return 'Only available for Admin!'
+		return jsonify({"message":'Sorry you have no access Priviladges'})
 
 	get_meals = Caterer().get_meals()
 	return jsonify({"messages": get_meals})
@@ -76,7 +76,7 @@ def get_all_meals(current_user):
 @token_required
 def add_meal(current_user):
 	if not current_user['admin']:
-		return 'Only available for Admin!'
+		return jsonify({"message":'Sorry you have no access Priviladges'})
 
 	new_meal = Caterer().post_meal(request.json['meal_id'], request.json['meal_name'],
                                 request.json['price'], request.json['category'], request.json['day'])
@@ -87,7 +87,7 @@ def add_meal(current_user):
 @token_required
 def edit_meal(current_user, mealId):
 	if not current_user['admin']:
-		return 'Only available for Admin!'
+		return jsonify({"message":'Sorry you have no access Priviladges'})
 
 	new_meal = Caterer().modify_meal(mealId,
                                   request.json['meal_name'], request.json['price'], request.json['category'], request.json['day'])
@@ -98,7 +98,7 @@ def edit_meal(current_user, mealId):
 @token_required
 def delete_meals(current_user, mealId):
 	if not current_user['admin']:
-		return 'Only available for Admin!'
+		return jsonify({"message":'Sorry you have no access Priviladges'})
 
 	delete_meal = Caterer().delete_ml(mealId)
 	return jsonify({"message": delete_meal})
@@ -108,7 +108,7 @@ def delete_meals(current_user, mealId):
 @token_required
 def setup_menu(current_user):
 	if not current_user['admin']:
-		return 'Only available for Admin!'
+		return jsonify({"message":'Sorry you have no access Priviladges'})
 
 	post_menu = Caterer().post_menu(request.json['meal_id'], request.json['meal_name'],
                                  request.json['price'], request.json['category'], request.json['day'])
@@ -119,7 +119,7 @@ def setup_menu(current_user):
 @token_required
 def menu_getter(current_user):
 	if current_user['admin']:
-		return 'Only available for users!'
+		return jsonify({"message":'Sorry you have no access Priviladges'})
 
 	get_menu = User().get_menu()
 	return jsonify({"messages": get_menu})
@@ -129,7 +129,7 @@ def menu_getter(current_user):
 @token_required
 def make_orders(current_user):
 	if current_user['admin']:
-		return 'Only available for users!'
+		return jsonify({"message":'Sorry you have no access Priviladges'})
 
 	new_order = User().make_order(request.json['meal_id'], request.json['meal_name'], request.json['price'],
                                request.json['category'], request.json['day'], request.json['quantity'], request.json['username'])
@@ -140,7 +140,7 @@ def make_orders(current_user):
 @token_required
 def modify_orders(current_user, orderId):
 	if current_user['admin']:
-		return 'Only available for users!'
+		return jsonify({"message":'Sorry you have no access Priviladges'})
 
 	mod = User().modify_order(orderId, request.json['quantity'])
 	return jsonify({"messages": mod})
@@ -150,9 +150,9 @@ def modify_orders(current_user, orderId):
 @token_required
 def delete_orders(current_user, orderId):
 	if current_user['admin']:
-		return 'Only available for users!'
+		return jsonify({"message":'Sorry you have no access Priviladges'})
 
-	# delete = Caterer().remove_order(orderId)
+	delete = Caterer().remove_order(orderId)
 	return jsonify({"messages": 'delete'})
 
 
@@ -160,7 +160,7 @@ def delete_orders(current_user, orderId):
 @token_required
 def get_all_orders(current_user):
 	if not current_user['admin']:
-		return 'Only available for Admin!'
+		return jsonify({"message":'Sorry you have no access Priviladges'})
 
 	get_order = Caterer().get_orders()
 	return jsonify({"messages": get_order})
