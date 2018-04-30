@@ -9,7 +9,7 @@ install:
 
 script: 
 
-  - python app.py
+  - nosetests test_app.py
 
 after_success:
   - coveralls
