@@ -10,8 +10,8 @@ install:
   
 script: 
   
-  - nose2 test_app.py
-  - nose2 test_endpoints.py
+  - python test_app.py
+  - python test_endpoints.py
 
 after_success:
 
