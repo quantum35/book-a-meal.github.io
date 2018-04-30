@@ -2,7 +2,7 @@ import unittest
 import json
 from app import app
 
- #Test Endpoints
+ #Test Endpoints for the Endpoints
 class TestFlaskAppEndpoints(unittest.TestCase):
     
     def setUp(self):
