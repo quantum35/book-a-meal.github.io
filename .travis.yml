@@ -6,6 +6,7 @@ python:
 install:
   - pip install -r requirements.txt
   - cd API
+  - ls -l
 script: 
 
   - python test_app.py
