@@ -51,7 +51,7 @@ class User(object):
 		if logged_user:
 			token = jwt.encode({
 				"user_id": user["user_id"],
-				"exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=30)}, '$%SECRET_KEY@#^@$')
+				"exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=30)}, 'Quantum#@$%^^&$#@@')
 			return token.decode('UTF-8')
 
 		return 'No such user! Sign Up'
@@ -85,7 +85,7 @@ class User(object):
 		self.output['quantity'] = quantity
 		self.output['username'] = username
 		Caterer.order_list.append(self.output)
-		return 'Meal successfully added to your orders'
+		return 'Meal successfully added '
 
 	def modify_order(self, meal_id, quantity):
 	    #Should validate the input data types
@@ -99,7 +99,7 @@ class User(object):
 
 	    self.output['quantity'] = quantity
 	    self.output['price'] = price * quantity
-	    return 'Order successfully modified'
+	    return 'Order  modified Succesfully'
 
 	def remove_order(self, meal_id):
 		orders = [order for order in Caterer(

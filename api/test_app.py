@@ -2,37 +2,37 @@ import unittest
 from app import *
 from project.myclasses.user import User
 from project.myclasses.caterer import Caterer
+ 
 
-
-class FlaskTestCase(unittest.TestCase):
-	"""docstring for FlaskTestCase"""
+class TestFlaskApp(unittest.TestCase):
+	"""docstring for TestFlaskApp"""
 
 	def test_create_users(self):
 		#Test if any of the entered values are empty
-		results = User().signup('', '1234567', 9805)
+		results = User().signup('', '1234567',7624)
 		self.assertEqual(results, 'Please fill all the details',
 		                 msg='There is an empty input')
 
 		#Type check the data
-		results4 = User().signup(45, 1234567, 9805)
+		results4 = User().signup(45, 1234567,7624)
 		self.assertEqual(
 			results4, 'Please enter a string value for username and password')
 
-		results5 = User().signup('ian', '1234567', '9805')
+		results5 = User().signup('quantum', '1234567', '9805')
 		self.assertEqual(results5, 'User Id should be an integer!')
 
 		#Creating a new user
-		results1 = User().signup('ian', '1234567', 9805)
+		results1 = User().signup('quantum', '1234567',7624)
 		self.assertEqual(results1, 'User successfully created',
 		                 msg='Successful registration')
 
 		#Checking if the user already exists
-		# results2 = User().signup('ian', '1234567', 9805)
+		# results2 = User().signup('quantum', '1234567',7624)
 		# self.assertEqual(results2, 'User exists!', msg='The user already exists')
 
 	def test_login_works_well(self):
 		#Checking if all inputs are filled
-		results = User().login('ian', '')
+		results = User().login('quantum', '')
 		self.assertEqual(results, 'Enter both username and password',
 		                 msg='You need to enter both username and password')
 
@@ -42,25 +42,16 @@ class FlaskTestCase(unittest.TestCase):
 			results1, 'Please enter a string value for username and password')
 
 		#Login error when user is not found
-		# results3 = User().login('iant', '#234')
+		# results3 = User().login('quantumt', '#234')
 		# self.assertEqual(results3, 'No such user! Please create an account')
 
 	def test_user_login(self):
 		#Creating a new user
-		User().signup('test', '1234567', 9805)
+		User().signup('test', '1234567',7624)
 		#Correct login from new user
 		results = User().login('test', '1234567')
 		self.assertIsInstance(results, str, msg='Incorrect output type')
-
-	'''def test_logout(self):
-		#Creating a new user
-		User().signup('test', '1234567', 9805)
-		#Correct login from new user
-		results = User().login('test', '1234567')
-		self.assertEqual(results, 'Loggin successful')
-		#Log out
-		results = User().logout()
-		self.assertEqual(results, 'Log out successful')'''
+#
 
 	def test_post_meal(self):
 		#Test if any of the entered values are empty
@@ -125,7 +116,7 @@ class FlaskTestCase(unittest.TestCase):
 
 	def test_get_orders(self):
 		Caterer().post_menu(4, "Ugali", 250, "lunch", "Monday")
-		User().make_order(4, "Ugali", 250, "lunch", "Monday", 1, "ian")
+		User().make_order(4, "Ugali", 250, "lunch", "Monday", 1, "quantum")
 		results = Caterer().get_orders()
 		self.assertIsInstance(results, list, msg='Incorrect output type')
 
@@ -138,12 +129,12 @@ class FlaskTestCase(unittest.TestCase):
 
 	def test_make_order(self):
 		Caterer().post_menu(4, "Ugali", 250, "lunch", "Monday")
-		results = User().make_order(4, "Ugali", 250, "lunch", "Monday", 1, "ian")
-		self.assertEqual(results, 'Meal successfully added to your orders')
+		results = User().make_order(4, "Ugali", 250, "lunch", "Monday", 1, "quantum")
+		self.assertEqual(results, 'Meal successfully added ')
 
 	def test_modify_order(self):
 		Caterer().post_menu(7, "Ugali", 250, "lunch", "Monday")
-		User().make_order(7, "Ugali", 250, "lunch", "Monday", 1, "ian")
+		User().make_order(7, "Ugali", 250, "lunch", "Monday", 1, "quantum")
 
 		#Check if meal exists
 		results = User().modify_order(3, 3)
@@ -151,11 +142,11 @@ class FlaskTestCase(unittest.TestCase):
 
 		#Modify meal
 		results = User().modify_order(7, 3)
-		self.assertEqual(results, 'Order successfully modified')
+		self.assertEqual(results, 'Order  modified Succesfully')
 
 	# def test_remove_order(self):
     # 	Caterer().post_menu(8, "Ugali", 250, "lunch", "Monday")
-	# 	User().make_order(8, "Ugali", 250, "lunch", "Monday", 1, "ian")
+	# 	User().make_order(8, "Ugali", 250, "lunch", "Monday", 1, "quantum")
 
 	# 	#Check if meal exists
 	# 	results = User().remove_order(3)
