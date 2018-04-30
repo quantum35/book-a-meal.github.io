@@ -51,16 +51,7 @@ class TestFlaskApp(unittest.TestCase):
 		#Correct login from new user
 		results = User().login('test', '1234567')
 		self.assertIsInstance(results, str, msg='Incorrect output type')
-
-	'''def test_logout(self):
-		#Creating a new user
-		User().signup('test', '1234567',7624)
-		#Correct login from new user
-		results = User().login('test', '1234567')
-		self.assertEqual(results, 'Loggin successful')
-		#Log out
-		results = User().logout()
-		self.assertEqual(results, 'Log out successful')'''
+#
 
 	def test_post_meal(self):
 		#Test if any of the entered values are empty
