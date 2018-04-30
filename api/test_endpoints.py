@@ -139,7 +139,7 @@ class TestFlaskAppEndpoints(unittest.TestCase):
 
         res = self.tester.delete('/api/v1/meals/8', headers=self.headers)
         self.assertEqual(res.status_code, 200)
-
+   
     def test_caterer_setup_menu(self):
         meal_data = json.dumps(
             {"meal_id": 1, "meal_name": "Rice", "price": 200, "category": "dinner", "day": "none"})

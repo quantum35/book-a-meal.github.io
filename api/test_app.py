@@ -5,7 +5,6 @@ from project.myclasses.caterer import Caterer
  
 
 class TestFlaskApp(unittest.TestCase):
-	"""docstring for TestFlaskApp"""
 
 	def test_create_users(self):
 		#Test if any of the entered values are empty
@@ -41,10 +40,6 @@ class TestFlaskApp(unittest.TestCase):
 		self.assertEqual(
 			results1, 'Please enter a string value for username and password')
 
-		#Login error when user is not found
-		# results3 = User().login('quantumt', '#234')
-		# self.assertEqual(results3, 'No such user! Please create an account')
-
 	def test_user_login(self):
 		#Creating a new user
 		User().signup('test', '1234567',7624)
@@ -76,10 +71,6 @@ class TestFlaskApp(unittest.TestCase):
 	def test_edit_meal(self):
 		#Creating a new meal
 		Caterer().post_meal(1, "Chicken", 200, "dinner", "Monday")
-
-		#Check if meal doesn't exists
-		# results = Caterer().modify_meal(2, "beef", 200, "dinner", "Tuesday")
-		# self.assertEqual(results, 'Meal unavailable!', msg='The meal does not exist exists')
 
 		#Modify meal
 		results = Caterer().modify_meal(1, "beef", 200, "dinner", "Tuesday")
