@@ -3,7 +3,7 @@ from app import *
 from project.myclasses.user import User
 from project.myclasses.caterer import Caterer
  
-
+#Flask Test
 class TestFlaskApp(unittest.TestCase):
 
 	def test_create_users(self):
