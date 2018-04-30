@@ -25,10 +25,6 @@ class TestFlaskApp(unittest.TestCase):
 		self.assertEqual(results1, 'User successfully created',
 		                 msg='Successful registration')
 
-		#Checking if the user already exists
-		# results2 = User().signup('quantum', '1234567',7624)
-		# self.assertEqual(results2, 'User exists!', msg='The user already exists')
-
 	def test_login_works_well(self):
 		#Checking if all inputs are filled
 		results = User().login('quantum', '')
