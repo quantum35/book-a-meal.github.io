@@ -264,6 +264,9 @@ hr {
 .food-delivers h1{
     color: rgba(0, 0, 0, 0.639);
 }
+.gallary{
+    width: 100%;
+}
 .gallary h1{
     color: rgb(68, 125, 196);
     text-align: center;
@@ -272,7 +275,9 @@ hr {
 /*Image for Gallary*/
 .my-container {
     position: relative;
-    margin: 20px 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
     float: left;
     
 }

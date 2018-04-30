@@ -1,0 +1,10 @@
+venv
+bin
+lib
+include
+__pycache__ 
+.DS_Store
+__pycache__
+.pycvscode
+.vscode
+ 

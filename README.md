@@ -2,9 +2,11 @@
 Book-A-Meal is an application that allows customers to make food orders and helps the food vendor know what the customers want to eat.
 This Project Was created Using  Stories From Pivotal Tracker [here](https://www.pivotaltracker.com/n/projects/2165741) intergrated to Github Using Its API Token
 
+[![Build Status](https://travis-ci.org/quantum35/book-a-meal.github.io.svg?branch=master)](https://travis-ci.org/quantum35/book-a-meal.github.io)
+[![Coverage Status](https://coveralls.io/repos/github/quantum35/Book-A-Meal-Backup/badge.svg?branch=feature)](https://coveralls.io/github/quantum35/Book-A-Meal-Backup?branch=feature)
 
 ### Introduction
-This web Project is created to easen the work of a Customer by simply Ordering Food Of Choice From The Comform Of his or her Home Then The caterer(admin) will Recieve the Order and Deliver IT To the Customer in Time.
+This web Project is created to Easen the work of a Customer by simply Ordering Food Of Choice From The Comform Of his or her Home Then The caterer(admin) will Recieve the Order and Deliver IT To the Customer in Time.
 This Project is Composed Of Two Parts
 
 * ClientSide
@@ -24,9 +26,6 @@ Once The User Has Loged in.They Will see Their Respective Profile
 * Little Knowledge of **Html**,**CSS** and **JS**
 * Text Editor I Recomend Visiual Studio Code
 
+[![Coverage Status](https://coveralls.io/repos/github/quantum35/Book-A-Meal-Backup/badge.svg?branch=feature)](https://coveralls.io/github/quantum35/Book-A-Meal-Backup?branch=feature)
 # Contribution
 Fork my Git to Contribute and Feel at Home Customising it to your Preffered Layout
-
-
-
-
