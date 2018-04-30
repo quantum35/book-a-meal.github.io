@@ -1,1 +1,0 @@
-web : --chdir API app:app
