@@ -10,8 +10,10 @@ install:
   
 script: 
   
-  - python test_app.py
-  - python test_endpoints.py
+  - nose2 test_app.py
+  - nose2 test_endpoints.py
 
 after_success:
+
+  - coverage run --source='.' --omit='app.py','config.py','Test.py' test_app.py test_endpoints.py
   - coveralls
