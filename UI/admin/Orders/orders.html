@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Book A Meal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/orders.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../users/assets/css/style.css">
+</head>
+
+<body onload="myFunction()" style="margin:0;">
+    <div class='myTopNav'>
+        <ul class="main-nav">
+            <li><a href="../index.html">Dashboard</a></li>
+            <li><a href="">Orders</a></li>
+            <li><a href="../Menu/Menu.html">Menu</a></li>
+            <li><a href="">Notifications <sup style="color:red;">233</sup></a></li>
+            <li><a href="../Posts/post.html">Posts<sup style="color:red;">900</sup></a></li>
+        </ul>
+        <img src="../assets/images/icons/safari.png" alt="Logo" class="logo">
+    </div>
+    <div id="loader"></div>
+
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+        <h1 style="padding: 10px;">Orders Made By Users</h1>
+        <div class="categoryDiv">
+            <div class="dropdown">
+                <button class="dropbtn">Order Date</button>
+                <div class="dropdown-content">
+                    <a href="#">March Orders</a>
+                    <a href="#">February Orders</a>
+                    <a href="#">January Orders</a>
+                    <a href="#">2017 Orders</a>
+                    <a href="#">2016 Orders</a>
+                    <a href="#">2015 Orders</a>
+                </div>
+            </div>
+        </div>
+        <table id="customers">
+            <tr>
+                <th> Customer Id</th>
+                <th> Customer Name</th>
+                <th> Country</th>
+                <th>Contact</th>
+                <th>Address</th>
+                <th> Order Id</th>
+                <th> Order Name</th>
+                <th>Order Date</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Philip Cramer</td>
+                <td>Kenya</td>
+                <td>0713748126</td>
+                <td>312 Nairobi</td>
+                <td>RA11214F4</td>
+                <td>Ugali Chicken</td>
+                <td>12/04/2018</td>
+                <td>Proccessed</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Viny Cramer</td>
+                <td>Kenya</td>
+                <td>0721748126</td>
+                <td>312 Nairobi</td>
+                <td>QA11214F4</td>
+                <td>Chips Chicken</td>
+                <td>22/04/2018</td>
+                <td>In Poccess</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Aleki Kiprono</td>
+                <td>Kenya</td>
+                <td>0721748126</td>
+                <td>312 Nakuru</td>
+                <td>SA11214F4</td>
+                <td>Beef Chicken</td>
+                <td>12/04/2018</td>
+                <td>Delivered</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Sydoo King'ore</td>
+                <td>Kenya</td>
+                <td>0731748126</td>
+                <td>344 Eldoret</td>
+                <td>RFFABHDGF565</td>
+                <td>Beef Rice</td>
+                <td>19/04/2018</td>
+                <td>In Process</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Quantum Gilly</td>
+                <td>Kenya</td>
+                <td>0713748126</td>
+                <td>312 Nairobi</td>
+                <td>RA11214F4</td>
+                <td>Ugali Chicken</td>
+                <td>12/04/2018</td>
+                <td>Proccessed</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Sharon Chepkemoi</td>
+                <td>Kenya</td>
+                <td>0723748126</td>
+                <td>312 Nairobi</td>
+                <td>SwrA11214F4</td>
+                <td>Rice Chicken</td>
+                <td>12/04/2018</td>
+                <td>In Proccess</td>
+            </tr>
+        </table>
+        <div>
+            <h2>Total Profit For The Day</h2><h1>KSH 152,000</h1>
+        </div>
+        <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a href="#">1</a>
+            <a href="#" class="active">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">&raquo;</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Andela Kenya Challange &copy; 2018</p>
+    </footer>
+    <div class='addbutton'>
+        <a href="#">
+            <img src="../assets/images/download.png" alt="add" id='addbtn' class='addbtn'>
+        </a>
+        <ul class="ulAdd" id='ulAdd'>
+            <li>
+                <a href="#">
+                    <img src="../../admin/assets/images/pen.png" alt="pen" class="pen">
+                </a>
+            </li>
+        </ul>
+        <div id='modelPost'>
+    
+        </div>
+    </div>
+    <script>
+        var myVar;
+
+        function myFunction() {
+            myVar = setTimeout(showPage, 3000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>

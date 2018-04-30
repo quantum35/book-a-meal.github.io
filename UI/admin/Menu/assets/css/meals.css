@@ -1,0 +1,186 @@
+.my-nav-custom {
+    -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+}
+.menu-item {
+    background: #fff;
+    padding:0px 10px;
+}
+.menu-item h4 {
+    color: #fff;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 7px 12px;
+    background: #14a00c;
+}
+.menu-item h4 a {
+  color: white;
+  display: block;
+  text-decoration: none;
+}
+.menu-item h4 {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 7px 12px;
+    /*Gradient*/
+    background: #198ae1;
+}
+.menu-item h4:hover {
+    background: #0ec6d3;
+}
+.alpha p {
+    font-size: 13px;
+    padding: 8px 12px;
+    color: #aaa;
+}
+/*ul Styles*/
+.menu-item ul {
+  background: #fff;
+  font-size: 13px;
+  line-height: 30px;
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0px;
+}
+ 
+.menu-item ul a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #aaa;
+  display: block;
+}
+ 
+/*li Styles*/
+.menu-item li {
+  border-bottom: 1px solid #eee;
+}
+ 
+.menu-item li:hover {
+  background: #eee;
+}
+.menu-item ul {
+    background: #fff;
+    font-size: 13px;
+    line-height: 30px;
+    height: 0px;
+    /*Collapses the menu*/
+    list-style-type: none;
+    overflow: hidden;
+    padding: 0px;
+}
+.menu-item ul {
+    background: #fff;
+    font-size: 13px;
+    line-height: 30px;
+    height: 0px;
+    list-style-type: none;
+    overflow: hidden;
+    padding: 0px;
+    /*Animation*/
+    -webkit-transition: height 1s ease;
+    -moz-transition: height 1s ease;
+    -o-transition: height 1s ease;
+    -ms-transition: height 1s ease;
+    transition: height 1s ease;
+}
+.menu-item:hover ul {
+    height: 93px;
+}
+.btn-add-menu{
+    float: right;
+    margin: 20px 20px;
+    padding: 10px;
+    width: 150px;
+    background-color: #0bd3e1;
+    border-radius: 10px;
+    font-size: 20px;
+    color:#fff;
+    
+}
+.btn-add-menu:hover{
+    background-color: #198ae1;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.close1 {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close1:hover,
+.close1:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.addnewItem input{
+    height: 30px;
+    width: 80%;
+    font-size: 20px;
+}
+.addnewItem select{
+    margin-top: 20px;
+    width: 55%;
+    height: 30px;
+}
+.addnewItem textarea{
+    margin-top: 20px;
+    font-size: 20px;
+}
+.addnewItem button{
+    margin-top: 20px;
+    width: 100px;
+    left: 20px;
+    height: 30px;
+    background-color: #198ae1;
+    border-radius: 10px;
+    font-size: 20px;
+    color: #fff;
+}
+.addnewItem button:hover{
+    background-color: #150771;
+}

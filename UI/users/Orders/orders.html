@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Book A Meal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/orders.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../../admin/assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../../admin/Orders/assets/css/orders.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/orders.css">
+</head>
+
+<body onload="myFunction()" style="margin:0;">
+        <div class='myTopNav'>
+            <ul class="main-nav">
+                <li>
+                    <a href="../profile.html">Dashboard</a>
+                </li>
+                <li>
+                    <a href="../Orders/orders.html">Orders</a>
+                </li>
+                <li>
+                    <a href="">Notifications
+                        <sup style="color:red;">233</sup>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Posts/posts.html">Posts
+                        <sup style="color:red;">900</sup>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Cart/cart.html">Cart
+                        <sup style="color:red;">3</sup>
+                    </a>
+                </li>
+            </ul>
+            <img src="../../admin/assets/images/icons/safari.png" alt="Logo" class="logo">
+            <div class='btside-nav' id='myBtn'>
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <!-- The Side Nav-->
+            <div id="myModal" class="side-nav">
+
+                <!-- Side Nav content -->
+                <div class="side-content">
+                    <span class="close">&times;</span>
+                    <div class="side-bar-image">
+                        <img src="./assets/images/customer-2.jpg" alt="User Pic" class="profilePic">
+                        <p>Leah Ngaira
+                            <br> leahngaira@andela.com
+                        </p>
+                    </div>
+                    <ul class="side-bar-links">
+                        <li class="active">
+                            <a href=""> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="./Orders/orders.html">Orders</a>
+                        </li>
+                        <li>
+                            <a href="">Notifications</a>
+                        </li>
+                        <li>
+                            <a href="../Posts/posts.html"> Posts</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a style="color: rgba(122, 125, 122, 0.831);"> Acount Information </a>
+                        </li>
+                        <li>
+                            <a href="../../../index.html">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div id="loader"></div>
+
+        <div style="display:none;" id="myDiv" class="animate-bottom">
+            <div class="userDash">
+                <h1 style="margin-bottom: 2%;">Your Orders</h1>
+                <table id="customers">
+                    <tr>
+                        <th> Order Id</th>
+                        <th>Image</th>
+                        <th> Order Name</th>
+                        <th>Order Date</th>
+                        <th> Total Price</th>
+                    </tr>
+                    <tr class="custMenu">
+                        <td>RE5F67F</td>
+                        <td>
+                            <img src="../assets/images/1.jpg" alt="">
+                        </td>
+                        <td>Rice Beans</td>
+                        <td>22/04/2018</td>
+                        <td>Ksh 200</td>
+                    </tr>
+                    <tr class="custMenu">
+                        <td>HTDRE5F67F</td>
+                        <td>
+                            <img src="../assets/images/1.jpg" alt="">
+                        </td>
+                        <td>Chips Chicken</td>
+                        <td>22/04/2018</td>
+                        <td>Ksh 200</td>
+                    </tr>
+                    <tr class="custMenu">
+                        <td>RFF5F67F</td>
+                        <td>
+                            <img src="../assets/images/1.jpg" alt="">
+                        </td>
+                        <td>Chicken Soup</td>
+                        <td>22/04/2018</td>
+                        <td>Ksh 200</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="popular-menus" style="background-color: rgb(200, 215, 179);">
+                <h3 style="margin-top: 10%;margin-bottom: 10px;">Popular Items</h3>
+                <span class="popular-items">
+                    <ul>
+                        <li>
+                            <span style="color: rgb(222, 33, 77);">Rice chicken:</span> @ ksh 500
+                            <span style="color: rgb(191, 33, 154);">Voted by</span> 20,000 Customers
+                        </li>
+                        <li>
+                            <span style="color: rgb(222, 33, 77);">Chips chicken:</span> @ ksh 500
+                            <span style="color: rgb(191, 33, 154);">Voted by</span> 15,000 Customers
+                        </li>
+                        <li>
+                            <span style="color: rgb(222, 33, 77);">Rice beans:</span> @ ksh 500
+                            <span style="color: rgb(191, 33, 154);">Voted by</span> 12,000 Customers
+                        </li>
+                        <li>
+                            <span style="color: rgb(222, 33, 77);">Ugali chicken:</span> @ ksh 500
+                            <span style="color: rgb(191, 33, 154);">Voted by</span> 8,000 Customers
+                        </li>
+                        <li>
+                            <span style="color: rgb(222, 33, 77);">Ugali Beef:</span> @ ksh 500
+                            <span style="color: rgb(191, 33, 154);">Voted by</span> 7,000 Customers
+                        </li>
+                        <li>
+                            <span style="color: rgb(222, 33, 77);">Beef Rice:</span> @ ksh 500
+                            <span style="color: rgb(191, 33, 154);">Voted by</span> 3,000 Customers
+                        </li>
+                    </ul>
+                </span>
+
+            </div>
+
+        </div>
+
+        <footer class="footer">
+            <p>Andela Kenya Challange &copy; 2018</p>
+        </footer>
+        <div class='addbutton'>
+            <a href="#">
+                <img src="../../admin/assets/images/download.png" alt="add" id='addbtn' class='addbtn'>
+            </a>
+            <ul class="ulAdd" id='ulAdd'>
+                <li>
+                    <a href="#">
+                        <img src="../../admin/assets/images/pen.png" alt="pen" class="pen">
+                    </a>
+                </li>
+            </ul>
+            <div id='modelPost'>
+
+            </div>
+        </div>
+        <script>
+            var myVar;
+
+            function myFunction() {
+                myVar = setTimeout(showPage, 3000);
+            }
+
+            function showPage() {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("myDiv").style.display = "block";
+            }
+            //SIDE MODAL
+            var modal = document.getElementById('myModal');
+            var btn = document.getElementById('myBtn');
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal 
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    console.log('Hello')
+                }
+            }
+        </script>
+
+    </body>
+
+    </html>
+</body>
+
+</html>

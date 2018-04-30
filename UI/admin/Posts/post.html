@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Book A Meal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/posts.css">
+</head>
+
+<body onload="myFunction()" style="margin:0;">
+    <div class='myTopNav'>
+        <ul class="main-nav">
+            <li><a href="../index.html">Dashboard</a></li>
+            <li><a href="../Orders/orders.html">Orders</a></li>
+            <li><a href="../Menu/Menu.html">Meals</a></li>
+            <li><a href="">Notifications <sup style="color:red;">233</sup></a></li>
+            <li><a href="">Posts<sup style="color:red;">900</sup></a></li>
+        </ul>
+        <img src="../assets/images/icons/safari.png" alt="Logo" class="logo">
+    </div>
+    <div id="loader"></div>
+
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+        <h1 style="padding: 10px;">Posts Made By Users</h1>
+        <table id="customers">
+            <tr>
+                <td>
+                    <img src="./assets/images/customer-1.jpg" alt="img" class='cust1'>
+                </td>
+                <td>Philip Cramer</td>
+                <td>Lorem ipsum dolor sit amet recana obcaeod nesclanditiis eum</td> 
+                <td>
+                    <ul class="tickbtns">
+                        <li>
+                            <a type="button"><img src="./assets/images/tick.png" id = 'btntick' alt="Img"></a>
+                        </li>
+                        <li>
+                            <a type="button"><img src="./assets/images/xbutton.png" id ='btnx' alt="Img"></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="./assets/images/customer-2.jpg" alt="img" class='cust1'>
+                </td>
+                <td>Leah Ngaira</td>
+                <td>Lorem ipsum dolor sit amet recana obcaeod nesclanditiis eum</td> 
+                <td>
+                    <ul class="tickbtns">
+                        <li>
+                            <a type="button"><img src="./assets/images/tick.png" id = 'btntick' alt="Img"></a>
+                        </li>
+                        <li>
+                            <a type="button"><img src="./assets/images/xbutton.png" id ='btnx' alt="Img"></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="./assets/images/customer-3.jpg" alt="img" class='cust1'>
+                </td>
+                <td>Jayden Cramer</td>
+                <td>Lorem ipsum dolor sit amet recana obcaeod nesclanditiis eum</td> 
+                <td>
+                    <ul class="tickbtns">
+                        <li>
+                            <a type="button"><img src="./assets/images/tick.png" id = 'btntick' alt="Img"></a>
+                        </li>
+                        <li>
+                            <a type="button"><img src="./assets/images/xbutton.png" id ='btnx' alt="Img"></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="./assets/images/customer-1.jpg" alt="img" class='cust1'>
+                </td>
+                <td>Michael anthony</td>
+                <td>Lorem ipsum dolor sit amet recana obcaeod nesclanditiis eum</td> 
+                <td>
+                    <ul class="tickbtns">
+                        <li>
+                            <a type="button"><img src="./assets/images/tick.png" id = 'btntick' alt="Img"></a>
+                        </li>
+                        <li>
+                            <a type="button"><img src="./assets/images/xbutton.png" id ='btnx' alt="Img"></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="./assets/images/customer-1.jpg" alt="img" class='cust1'>
+                </td>
+                <td>Philip Cramer</td>
+                <td>Lorem ipsum dolor sit amet recana obcaeod nesclanditiis eum</td> 
+                <td>
+                    <ul class="tickbtns">
+                        <li>
+                            <a type="button"><img src="./assets/images/tick.png" id = 'btntick' alt="Img"></a>
+                        </li>
+                        <li>
+                            <a type="button"><img src="./assets/images/xbutton.png" id ='btnx' alt="Img"></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <div id='tickmodal' style="display: none;position: fixedzzs; z-index: 2;
+                                    background-color: rgb(3, 19, 48); width: 50%; margin-left: 30%;">
+            <h1>You Clicked Tick Button</h1>
+            <h4>Click Outside This Modal To Close it</h4>
+        </div>
+        <div id='xmodal' style="display: none;position: fixedzzs; z-index: 2;
+                                 background-color: rgb(6, 6, 77);width: 50%; margin-left: 30%;">
+            <h1>You Clicked X Button</h1>
+        </div>
+        <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a href="#">1</a>
+            <a href="#" class="active">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">&raquo;</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Andela Kenya Challange &copy; 2018</p>
+    </footer>
+    <div class='addbutton'>
+        <a href="#">
+            <img src="../assets/images/download.png" alt="add" id='addbtn' class='addbtn'>
+        </a>
+        <ul class="ulAdd" id='ulAdd'>
+            <li>
+                <a href="#">
+                    <img src="../assets/images/pen.png" alt="pen" class="pen">
+                </a>
+            </li>
+        </ul>
+        <div id='modelPost'>
+    
+        </div>
+    </div>
+    <script>
+        var myVar;
+
+        function myFunction() {
+            myVar = setTimeout(showPage, 3000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
+        //Action Listeners
+        var clickedT = document.getElementById('btntick');
+        var clickedX = document.getElementById('btnx');
+        
+        var modalTick = document.getElementById('tickmodal');
+        var modalX = document.getElementById('xmodal');
+
+        clickedT.onclick = function(){
+            modalTick.style.display = 'block';
+        }
+        clickedX.onclick = function(){
+            modalX.style.display = 'block';
+        }
+        window.onclick=function(event){
+            if(event.target !== clickedT){
+                modalTick.style.display= 'none';
+            }
+            if(event.target !== clickedX){
+                modalX.style.display = 'none';
+            }
+        }
+        
+    </script>
+
+</body>
+
+</html>

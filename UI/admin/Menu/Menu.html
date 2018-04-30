@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Book A Meal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../Posts/assets/css/posts.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/meals.css">
+</head>
+
+<body onload="myFunction()" style="margin:0;">
+    <div class='myTopNav'>
+        <ul class="main-nav">
+            <li>
+                <a href="../index.html">Dashboard</a>
+            </li>
+            <li>
+                <a href="../Orders/orders.html">Orders</a>
+            </li>
+            <li>
+                <a href="">Menu</a>
+            </li>
+            <li>
+                <a href="">Notifications
+                    <sup style="color:red;">233</sup>
+                </a>
+            </li>
+            <li>
+                <a href="../Posts/post.html">Posts
+                    <sup style="color:red;">900</sup>
+                </a>
+            </li>
+        </ul>
+        <img src="../assets/images/icons/safari.png" alt="Logo" class="logo">
+    </div>
+    <div id="loader"></div>
+
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+        <h1 style="padding: 10px;"> Book-A-Meal Menu List</h1>
+        
+            <div class='my-nav-custom'>
+                <div class="menu-item alpha">
+                    <h4>
+                        <a href="#">Beverages</a>
+                    </h4>
+                    <ul>
+                        <li>
+                            <a href="#">Red Wine <span style="margin-left: 60%;">Ksh 1500</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Lemonade <span style="margin-left: 60%;">Ksh 900</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Del Monte <span style="margin-left: 60%;">Ksh 1300</span></a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="menu-item">
+                    <h4>
+                        <a href="#">Breakfast</a>
+                    </h4>
+                    <ul>
+                        <li>
+                            <a href="#">Black Coffe <span style="margin-left: 60%;">Ksh 400</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Tea <span style="margin-left: 60%;">Ksh 300</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Cocoa <span style="margin-left: 60%;">Ksh 200</span></a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="menu-item">
+                    <h4>
+                        <a href="#">Supper</a>
+                    </h4>
+                    <ul>
+                        <li>
+                            <a href="#">Chips Chicken <span style="margin-left: 60%;">Ksh 1500</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Rice Beans <span style="margin-left: 60%;">Ksh 900</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Ugali Beef <span style="margin-left: 60%;">Ksh 800</span></a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="menu-item">
+                    <h4>
+                        <a href="#">Special Meals</a>
+                    </h4>
+                    <ul>
+                        <li>
+                            <a href="#">Sea Crubs <span style="margin-left: 60%;">Ksh 1600</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Lobsters <span style="margin-left: 60%;">Ksh 1300</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Roasted Shark <span style="margin-left: 60%;">Ksh 1200</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button class="btn-add-menu" id="myBtn">
+                Add Menu
+            </button>
+            <button class="btn-add-menu" id="myBtn1">
+                Menu Of the Day
+            </button>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h1>Add New Menu </h1>
+                    <form action="" class="addnewItem">
+                        <input type="text" placeholder="Enter Name" > <br>
+                        <span style="float: left;margin-left: 81px;margin-top: 20px;">Choose Cartegory</span>
+                    <select>
+                        <option value="volvo">Beverages</option>
+                        <option value="saab">Breakfast</option>
+                        <option value="opel">Special</option>
+                    </select><br>
+                     <textarea name="newMenu" id="" cols="100" rows="10">
+                     </textarea>
+                     <button>
+                         Save
+                     </button>
+                    </form>
+                </div>
+
+            </div>
+            <!--Modal For Setting new menu of The Day-->
+            <div id="myModal1" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close1">&times;</span>
+                    <h1>Add New Menu </h1>
+                    <form action="" class="addnewItem">
+                        <span style="float: left;margin-left: 81px;margin-top: 20px;">Item  Cartegory</span>
+                        <select>
+                            <option value="volvo">Beverages</option>
+                            <option value="saab">Breakfast</option>
+                            <option value="opel">Special</option>
+                        </select><br>
+                        <span style="float: left;margin-left: 81px;margin-top: 20px;">Item  Name</span>
+                        <select>
+                            <option value="volvo">Beverages</option>
+                            <option value="saab">Breakfast</option>
+                            <option value="opel">Special</option>
+                        </select><br>
+                        <span style="float: left;margin-left: 81px;margin-top: 20px;">Set Date</span>
+                        <select>
+                            <option value="volvo">21st April 2018</option>
+                            <option value="saab">22nd April 2018</option>
+                            <option value="opel">23rd April 2018</option>
+                            <option value="volvo">24th April 2018</option>
+                            <option value="saab">25th April 2018</option>
+                            <option value="opel">26th April 2018</option>
+                        </select><br>
+                        <button>
+                            Save
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+        <div id='tickmodal' style="display: none;position: fixedzzs; z-index: 2;
+                                    background-color: rgb(3, 19, 48); width: 50%; margin-left: 30%;">
+            <h1>You Clicked Tick Button</h1>
+            <h4>Click Outside This Modal To Close it</h4>
+        </div>
+        <div id='xmodal' style="display: none;position: fixedzzs; z-index: 2;
+                                 background-color: rgb(6, 6, 77);width: 50%; margin-left: 30%;">
+            <h1>You Clicked X Button</h1>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Andela Kenya Challange &copy; 2018</p>
+    </footer>
+    <div class='addbutton'>
+        <a href="#">
+            <img src="../assets/images/download.png" alt="add" id='addbtn' class='addbtn'>
+        </a>
+        <ul class="ulAdd" id='ulAdd'>
+            <li>
+                <a href="#">
+                    <img src="../assets/images/pen.png" alt="pen" class="pen">
+                </a>
+            </li>
+        </ul>
+        <div id='modelPost'>
+
+        </div>
+    </div>
+    <script>
+        var myVar;
+
+        function myFunction() {
+            myVar = setTimeout(showPage, 3000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
+                    // Get the modal
+            var modal = document.getElementById('myModal');
+            var modal1 = document.getElementById('myModal1')
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+            var btn1 = document.getElementById('myBtn1');
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+            var span1 = document.getElementsByClassName("close1")[0];
+
+            // When the user clicks the button, open the modal 
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+            btn1.onclick = function(){
+                modal1.style.display = 'block';
+            }
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+            span1.onclick = function(){
+                modal1.style.display = 'none';
+            }
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+    </script>
+
+</body>
+
+</html>

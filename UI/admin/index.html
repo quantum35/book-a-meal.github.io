@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Book A Meal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+</head>
+<body>
+    <!--START OF PRELOADER-->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!--END OF PRELOADER-->
+   <div class='myTopNav'>
+        <ul class="main-nav">
+            <li><a href="">Dashboard</a></li>
+            <li><a href="./Orders/orders.html">Orders</a></li>
+            <li><a href="./Menu/Menu.html">Menu</a></li>
+            <li><a href="">Notifications <sup style="color:red;">233</sup></a></li>
+            <li><a href="./Posts/post.html">Posts<sup style="color:red;">900</sup></a></li>
+        </ul>
+        <img src="./assets/images/icons/safari.png" alt="Logo" class="logo">
+        <div class='btside-nav' id='myBtn'>
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <!-- The Side Nav-->
+        <div id="myModal" class="side-nav">
+        
+            <!-- Side Nav content -->
+            <div class="side-content">
+                <span class="close">&times;</span>
+                <div class="side-bar-image">
+                    <img src="./assets/images/admin.jpg" alt="Admin Pic" class="profilePic">
+                    <p>quantum coputing <br>
+                        quantum25@andela.com</p>
+                </div>
+                <ul class="side-bar-links">
+                    <li class="active"> 
+                        <a href=""> Dashboard</a>
+                    </li>
+                    <li><a href="./Orders/orders.html">Orders</a> </li>
+                    <li> <a href="">Notifications</a> </li>
+                    <li> <a href="./Posts/post.html"> Posts</a> </li>
+                    <hr>
+                    <li><a  style="color: rgba(122, 125, 122, 0.831);"> Acount Information </a></li>
+                    <li><a href="../../index.html">Logout</a></li>
+                </ul>
+            </div>
+        
+        </div>
+        <section>
+            <div class="card1">
+                <!--Icons Go Here-->
+                <h4>Monthly Visitors</h4> <br>
+                <h1 class="Count">28300</h1>
+                <div id="progressbar">
+                     <div></div>
+                </div>
+            </div>
+            <div class="card2">
+                <!--Icons Go Here-->
+                <h4>Daily Profit</h4><br>
+                <h1 class="Count">152000</h1>
+                <div id="progressbar1">
+                     <div></div>
+                </div>
+            </div>
+            <div class="card3">
+                <!--Icons Go Here-->
+                <h4>Comments</h4><br>
+                <h1 class="Count">2300</h1>
+                <div id="progressbar2">
+                     <div></div>
+                </div>
+            </div>
+            <div class="card4" style="background-color: rgba(112, 114, 114, 0.653);">
+                <!--Icons Go Here-->
+                <h4>Customers</h4><br>
+                <h3 class="Count">213000</h3>
+                <div id="progressbar3">
+                     <div></div>
+                </div>
+            </div>
+            <div class='hold-chart'>
+                <div id="chartContainer" class="sampleChart"></div>
+                <div class="hold-chart-right">
+                    <h3 style="text-align: center;">Latest Posts</h3>
+                    <div>
+                        <img src="./assets/images/admin.jpg" alt="customer Image" class="postImg">
+                        <h4 style="padding: 10px;">Vincent Onyango</h4>
+                        <p style="margin-top: -1px; font-size: 17px; margin-left: 10px;">
+                            Lorem ipsum dolor sit amet consecit. Blanditiis dolorem repellendus, qui voluptates nemo architecto facilis
+                            natus eveniet ap
+                        </p>
+                        <a href="#" style="text-decoration: none;float: right; margin-right: 10px;">reply</a>
+                    </div>
+                    <br>
+                    <hr>
+                    <div>
+                        <img src="./assets/images/admin.jpg" alt="customer Image" class="postImg">
+                        <h4 style="padding: 10px;">Vincent Onyango</h4>
+                        <p style="margin-top: -1px; font-size: 17px; margin-left: 10px;">
+                            Lorem i lit. Blanditiis dolorem repellendus, qui voluptates nemo architecto facilis
+                            natus e aperiam optio quo gend
+                        </p>
+                        <a href="#" style="text-decoration: none;float: right; margin-right: 10px;">reply</a>
+                    </div><br>
+                    <hr>
+                    <div>
+                        <img src="./assets/images/admin.jpg" alt="customer Image" class="postImg">
+                        <h4 style="padding: 10px;">Vincent Onyango</h4>
+                        <p style="margin-top: -1px; font-size: 17px; margin-left: 10px;">
+                            Lorem ipsum dolanditiis dolendus, qui voluptates nemo architecto facilis
+                            natus eveniet aperiam optio quo gend
+                        </p>
+                        <a href="#" style="text-decoration: none;float: right; margin-right: 10px;">reply</a>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        <footer class="footer">
+            <p>Andela Kenya Challange &copy; 2018</p>
+        </footer>
+        <div class='addbutton'>
+            <a href="#"> <img src="./assets/images/download.png" alt="add" id ='addbtn' class='addbtn'></a>
+            <ul class="ulAdd" id='ulAdd'>
+                <li ><a href="#"><img src="./assets/images/pen.png" alt="pen" class="pen"></a></li>
+            </ul>
+            <div id='modelPost'>
+                
+            </div>
+        </div>
+    </div>
+    <script src='./assets/js/jquery-3.3.1.min.js'></script>
+    <script src="./assets/js/canvasjs.min.js"></script>
+    <script src="./assets/js/charts.js"></script>
+    <script>
+       Window.onclick = function(e) {
+           
+       }
+    </script>
+    <script>
+        // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal 
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+            // When the user clicks anywhere outside of the modal, close it
+            
+            //PRELOADER
+            $(window).on('load', function () { // makes sure the whole site is loaded 
+                    $('#status').fadeOut(); // will first fade out the loading animation 
+                    $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+                    $('body').delay(350).css({ 'overflow': 'visible' });
+                })
+            //ADD BUTTON
+            var addBottomBtn = document.getElementById('addbtn');
+            var showMeCont = document.getElementById('ulAdd');
+            addBottomBtn.onclick = function(){
+                showMeCont.style.display='block';
+            }
+            window.onclick = function(event){
+                if(event.target!== addBottomBtn){
+                     showMeCont.style.display = 'none';
+                }
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    console.log('Hello')
+                }
+            }
+            $(document).ready(function () {
+                $('.Count').each(function () {
+                    var $this = $(this);
+                    jQuery({ Counter: 0 }).animate({ Counter: $this.text() }, {
+                        duration: 5000,
+                        easing: 'swing',
+                        step: function () {
+                            $this.text(Math.ceil(this.Counter));
+                        }
+                    });
+                });
+
+            });
+    </script>
+</body>
+</html>
