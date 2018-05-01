@@ -8,7 +8,7 @@ install:
   # - cd API
   # - ls -la 
 before_script:
-- pip install -r requirements.txt --use-mirrors
+# - pip install -r requirements.txt 
 - git clone https://github.com/quantum35/book-a-meal.github.io.git
 - cd API
 - ls -la
