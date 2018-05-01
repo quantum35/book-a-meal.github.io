@@ -8,13 +8,11 @@ install:
   - cd API
   - ls -la 
   
-# script: 
-  
-#   - python test_app.py
-#   - python test_endpoints.py
-
 script: 
-  - python -m pytest --cov-report term-missing --cov=models
+  
+  - python test_app.py
+  - python test_endpoints.py
+
 
 after_success:
   - coveralls
