@@ -1,0 +1,7 @@
+[uwsgi]
+http-socket =  :$(PORT)
+master = true
+die-on-term = true
+chdir = API
+module = app:app
+memory-report = true
