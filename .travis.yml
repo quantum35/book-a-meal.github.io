@@ -5,19 +5,13 @@ python:
 
 install:
   - pip install -r requirements.txt
-  # - cd API
-  # - ls -la 
-before_script:
-# - pip install -r requirements.txt 
-- git clone https://github.com/quantum35/book-a-meal.github.io.git
-- cd API
-- ls -la
-- git checkout -qf feature/develop
-- py.test example/tests.py --cov=example
-- cd -
+  - cd API
+  - ls -la 
+  
 script: 
   
-  - py.test test_app.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing
+  - python test_app.py
+  - python test_endpoints.py
 
 
 after_success:
