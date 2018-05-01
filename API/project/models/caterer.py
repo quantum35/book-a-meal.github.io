@@ -1,3 +1,6 @@
+from project.db import db
+
+
 class Caterer(object):
     """docstring for Caterer"""
     caterer = [{'username': 'admin', 'password': 'admin',

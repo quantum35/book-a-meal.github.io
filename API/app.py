@@ -167,4 +167,6 @@ def get_all_orders(current_user):
 
 
 if __name__ == "__main__":
+	from project.db import db
+	db.init_app(app)
 	app.run(debug=True)
