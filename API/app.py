@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
-from project.myclasses.user import User
-from project.myclasses.caterer import Caterer
+from project.models.user import User
+from project.models.caterer import Caterer
 from functools import wraps
 import jwt
 

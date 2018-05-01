@@ -1,7 +1,7 @@
 import unittest
 from app import *
-from project.myclasses.user import User
-from project.myclasses.caterer import Caterer
+from project.models.user import User
+from project.models.caterer import Caterer
  
 #Flask Test
 class TestFlaskApp(unittest.TestCase):
