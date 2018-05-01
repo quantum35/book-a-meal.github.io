@@ -18,7 +18,7 @@ before_script:
 - cd -
 script: 
   
-  -- py.test test_app.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing
+  - py.test test_app.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing
 
 
 after_success:
