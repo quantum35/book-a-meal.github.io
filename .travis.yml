@@ -17,4 +17,4 @@ script:
 after_success:
 
   - coveralls
-  - coverage --omit='app.py','config.py' python test_endpoints.py 
+  - coverage run --source='.'  test_endpoints.py test_app.py
