@@ -4,17 +4,24 @@ python:
   - "3.6"
 
 install:
+  - pip install -e . --use-mirrors
   - pip install -r requirements.txt
   - cd API
   - ls -la 
-  
+before_script:
+- pip install -r requirements.txt --use-mirrors
+- git clone https://github.com/quantum35/book-a-meal.github.io.git
+- cd API
+- ls -la
+- git checkout -qf feature/develop
+- py.test example/tests.py --cov=example
+- cd -
 script: 
   
-  - python test_app.py
-  - python test_endpoints.py
+  -- py.test test_app.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing
 
 
 after_success:
 
+  - coverage run --source='.' --omit='app.py','config.py','Test.py' test_app.py 
   - coveralls
-  - coverage run --source='.'  test_endpoints.py test_app.py
