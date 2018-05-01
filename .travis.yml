@@ -8,13 +8,19 @@ install:
   - cd API
   - ls -la 
   
-script: 
+# script: 
   
-  - python test_app.py
-  - python test_endpoints.py
+#   - python test_app.py
+#   - python test_endpoints.py
+
+script: 
+  - python -m pytest --cov-report term-missing --cov=models
 
 after_success:
-
-  #- coverage run --source='.' --omit='app.py','config.py','Test.py' test_app.py test_endpoints.py
-  - coverage run --source='.' 
   - coveralls
+  - coverage run --source='.' --omit='app.py','config.py','Test.py' test_app.py test_endpoints.py
+# after_success:
+
+#   #- coverage run --source='.' --omit='app.py','config.py','Test.py' test_app.py test_endpoints.py
+#   - coverage run --source='.' 
+#   - coveralls
