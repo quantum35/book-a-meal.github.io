@@ -34,11 +34,6 @@ pytz==2018.4
 requests==2.18.4
 six==1.11.0
 SQLAlchemy==1.2.7
-<<<<<<< HEAD
-virtualenv==15.2.0
-virtualenv-clone==0.3.0
-=======
 urllib3==1.22
->>>>>>> e8a337f65ce181de0b1d0389b37215d44d34ffb5
 Werkzeug==0.14.1
 wrapt==1.10.11
