@@ -1,5 +1,3 @@
-from project.db import db
-
 
 class Caterer(object):
     """docstring for Caterer"""
