@@ -1,5 +1,5 @@
 import unittest
-from app import *
+from app import app
 from project.models.user import User
 from project.models.caterer import Caterer
  
