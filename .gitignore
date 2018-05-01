@@ -1,10 +1,7 @@
-venv
-bin
-lib
-include
-__pycache__ 
+__pycache__/
 .DS_Store
 __pycache__
 .pycvscode
 .vscode
- 
+*.pyc
+venv
