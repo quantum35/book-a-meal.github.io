@@ -8,13 +8,13 @@ install:
   - cd API
   - ls -la 
   
-script: 
-  
-  - python test_app.py
-  - python test_endpoints.py
+  - pip install coveralls
 
+script:
+  - python -m pytest --cov-report term-missing --cov=resources
 
 after_success:
-
-  - coverage run --source='.' --omit='app.py','config.py','caterer.py','user.py'  test_app.py
   - coveralls
+  
+notifications:
+  email: false
