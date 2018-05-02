@@ -9,6 +9,7 @@ install:
   - ls -la 
   
   - pip install coveralls
+  - pip install pytest-cov
 
 script:
   # - python test_endpoints.py
