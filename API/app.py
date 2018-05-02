@@ -5,10 +5,12 @@ from functools import wraps
 import jwt
 import os
 
+from config import app_config
+
+
 app = Flask(__name__)
-app.config.from_object(os.environ['APP_SETTINGS'])
+app.config.from_pyfile('config.py')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
 
  
 def token_required(f):
