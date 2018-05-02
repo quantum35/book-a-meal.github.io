@@ -1,0 +1,23 @@
+language: python
+
+python:
+  - "3.6"
+
+install:
+  - pip install -r requirements.txt
+  - cd API
+  - ls -la 
+  
+  - pip install coveralls
+  - pip install pytest-cov
+
+script:
+  # - python test_endpoints.py
+  # - python test_app.py
+  - python -m pytest --cov-report term-missing --cov=resources
+
+after_success:
+  - coveralls
+
+notifications:
+  email: false
