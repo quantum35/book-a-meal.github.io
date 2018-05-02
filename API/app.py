@@ -5,6 +5,9 @@ from functools import wraps
 import jwt
 
 app = Flask(__name__)
+app.config.from_object(os.environ['APP_SETTINGS'])
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
  
 def token_required(f):
@@ -167,6 +170,4 @@ def get_all_orders(current_user):
 
 
 if __name__ == "__main__":
-	from project.db import db
-	db.init_app(app)
 	app.run(debug=True)

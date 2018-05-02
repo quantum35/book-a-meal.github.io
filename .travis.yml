@@ -11,9 +11,9 @@ install:
   - pip install coveralls
 
 script:
-  - python test_app.py
-  - python test_endpoints.py
-  - python -m pytest --cov-report term-missing --cov=resources
+  # - python test_app.py
+  - python test_endpoints.py --cov-report term-missing --cov=resources
+  # - python -m pytest --cov-report term-missing --cov=resources
 
 after_success:
   - coveralls
