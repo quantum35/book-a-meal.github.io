@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/quantumcomputing/Movies/Andela/AndelaProject/realChallangeProject/book-a-meal.github.io/API/venv"
+VIRTUAL_ENV="/Users/quantumcomputing/Movies/Andela/AndelaProject/realChallangeProject/AndelaChallenge/book-a-meal.github.io/API/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

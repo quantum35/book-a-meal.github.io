@@ -8,10 +8,16 @@ install:
   - cd API
   - ls -la 
   
-script: 
+  - pip install coveralls
+  - pip install pytest-cov
 
-  - python test_app.py
-  - python test_endpoints.py
+script:
+  # - python test_endpoints.py
+  # - python test_app.py
+  - python -m pytest --cov-report term-missing --cov=resources
 
 after_success:
   - coveralls
+
+notifications:
+  email: false
