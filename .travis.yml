@@ -12,7 +12,8 @@ install:
 
 script:
   - python test_endpoints.py
-  - python -m pytest --cov-report term-missing --cov=resources
+  - python test_app.py
+  # - python -m pytest --cov-report term-missing --cov=resources
 
 after_success:
   - coveralls
