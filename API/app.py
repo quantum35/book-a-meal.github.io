@@ -3,6 +3,7 @@ from project.models.user import User
 from project.models.caterer import Caterer
 from functools import wraps
 import jwt
+import os
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
