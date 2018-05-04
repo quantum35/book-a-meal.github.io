@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/quantumcomputing/Movies/Andela/AndelaProject/realChallangeProject/book-a-meal.github.io/API/venv"
+set -gx VIRTUAL_ENV "/Users/quantumcomputing/Movies/Andela/TDD/IWinn/API/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
