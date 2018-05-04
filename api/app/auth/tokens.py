@@ -19,7 +19,8 @@ def token_required(f):
 
 		try:
 			data = jwt.decode(token, getenv('SECRET_KEY'))
-			active_user = User.query.filter_by(user_id=data['user_id']).first()
+			active_user = User.query.filter_by(
+				public_user_id=data['public_user_id']).first()
 		except:
 			return {"message": "Token is Invalid!"}, 401
 
@@ -41,7 +42,8 @@ def admin_only(f):
 
 		try:
 			data = jwt.decode(token, getenv('SECRET_KEY'))
-			active_user = User.query.filter_by(user_id=data['user_id']).first()
+			active_user = User.query.filter_by(
+				public_user_id=data['public_user_id']).first()
 		except:
 			return {"message": "Token is Invalid!"}, 401
 

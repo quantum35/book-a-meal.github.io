@@ -1,28 +1,14 @@
 import json
 import unittest
 import uuid
-from test_config import GroundTests
+from base_test import GroundTests
 from app.models import Orders
 
 class TestMeals(GroundTests):
     def setUp(self):
         GroundTests.setUp(self)
 
-        #Add meal to menu
-        self.add_menu_data = {
-            "menu_name": "Pasta with beef",
-            "menu_price": 300,
-            "menu_category"   : "lunch",
-            "menu_day": "tuesday"
-        }
-
-        #Add none existing meal to menu
-        self.add_bad_data = {
-            "menu_name": "Chapatti with Beef",
-            "menu_price": 250,
-            "menu_category"   : "dinner",
-            "menu_day": "monday"
-        }
+        
 
         # Add non-existing data to order
         self.none_order = {
@@ -54,7 +40,7 @@ class TestMeals(GroundTests):
             "order_user" : "ian"
         }
 
-        self.avail_order = Orders.query.filter_by(order_name="Rice with beef").first()
+        self.avail_order = Orders.query.filter_by(order_qty=4,meal_id= 2).first()
 
         self.qty = {
             "order_qty" : 3

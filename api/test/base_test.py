@@ -42,23 +42,20 @@ class GroundTests(TestCase):
         db.session.add(self.new_menu)
         db.session.commit()
 
-        #Add meal in menu to order
-        self.menu = Menu.query.filter_by(menu_id=uuid.uuid4()).first()
-        print(self.menu)
-        self.new_order = Orders(order_id= uuid.uuid4(),order_qty=4)
+        #Add meal in Items to order
+        self.new_order = Orders(order_qty=4,meal_id= self.meal.meal_id)
         db.session.add(self.new_order)
         db.session.commit()
 
         #Add new meal 2
-        self.new_meal2 = Meals(meal_id = int(uuid.uuid4()), meal_name = "Black Coffee", meal_price = 70,
+        self.new_meal2 = Meals(meal_id = uuid.uuid4(), meal_price='200', meal_name = "Black Coffee",
             meal_category = "breakfast", meal_day = 'tuesday')
         db.session.add(self.new_meal2)
         db.session.commit()
 
         #Add meal to menu 2
         self.meal2 = Meals.query.filter_by(meal_name='Tea').first()
-        self.new_menu2 = Menu(menu_id = self.meal2.meal_id, menu_name = "Milk with Bread", menu_price = 70,
-            menu_category = "breakfast", menu_day = 'tuesday')
+        self.new_menu2 = Menu(meal_relelation= self.meal, menu_id= uuid.uuid4())
         db.session.add(self.new_menu2)
         db.session.commit()
 
