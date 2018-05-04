@@ -75,11 +75,7 @@ class MenuOrders(Resource):
         menu = Menu.query.all()
         output = []
         for meal in menu:
-            data = {}
-            data['menu_name'] = meal.menu_name
-            data['menu_price'] = meal.menu_price
-            data['menu_category'] = meal.menu_category
-            data['menu_day'] = meal.menu_day #The menu of the day
+            data = {"menu":"id"}
             output.append(data)
 
         return {"status": "success", "data": output}, 200

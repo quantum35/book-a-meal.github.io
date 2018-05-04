@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 import jwt
-from datetime import datetime, timedelta
+from datetime import datetime, date, timedelta
 from os import getenv
 
 # initialize sql-alchemy
@@ -35,7 +35,6 @@ class Meals(db.Model):
 	meal_name = db.Column(db.String(50))
 	meal_price = db.Column(db.Integer)
 	meal_category = db.Column(db.String(50))
-	meal_day = db.Column(db.String(50))
 	caterer_id = db.Column(db.String, db.ForeignKey('users.user_id'))
 	caterer_relelation = db.relationship('User', 
 										 backref = db.backref('meals', lazy = True))
@@ -55,21 +54,11 @@ class Menu(db.Model):
 	__tablename__ = "menu"
 	id = db.Column(db.Integer, primary_key = True)
 	menu_id = db.Column(db.String(50), unique = True)
-	menu_name = db.Column(db.String(50))
-	menu_price = db.Column(db.Integer)
-	menu_category = db.Column(db.String(50))
-	menu_day = db.Column(db.String(50))
+	menu_day = db.Column(db.Date , default = date.today())
 	meal_id = db.Column(db.String, db.ForeignKey('meals.meal_id'))
-	caterer_relelation = db.relationship('Meals',
+	meal_relelation = db.relationship('Meals',
                                       backref=db.backref('menu', lazy=True))
-
-	def __init__(self, menu_id, menu_name, menu_price, menu_category, menu_day):
-		self.menu_id = menu_id
-		self.menu_name = menu_name
-		self.menu_price = menu_price
-		self.menu_category = menu_category
-		self.menu_day = menu_day
-
+ 
 	def __repr__(self):
 		return '<Menu {}>'.format(self.menu_id)
 
@@ -78,16 +67,14 @@ class Orders(db.Model):
 	__tablename__ = "orders"
 	id = db.Column(db.Integer, primary_key = True)
 	order_id = db.Column(db.String(50), unique = True)
-	order_name = db.Column(db.String(50))
-	order_price = db.Column(db.Integer)
-	order_category = db.Column(db.String(50))
-	order_day = db.Column(db.String(50))
+	order_day = db.Column(db.String(50), default = date.today())
 	order_qty = db.Column(db.Integer)
-	order_user = db.Column(db.String(50))
 	user_id = db.Column(db.String, db.ForeignKey('users.user_id'))
-	user_relelation = db.relationship('Orders',
+	user_relelation = db.relationship('User',
                                       backref=db.backref('orders', lazy=True))
-	
+	menu_id = db.Column(db.String(50), db.ForeignKey('menu.menu_id'))
+	menu_relelation = db.relationship('Menu',
+									  backref= db.backref('orders'), lazy = True)
 
 	def __init__(self, order_id, order_name, order_price, order_category, order_day, order_qty, order_user):
 		self.order_id = order_id

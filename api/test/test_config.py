@@ -37,16 +37,15 @@ class GroundTests(TestCase):
         db.session.commit()
 
         #Add meal to menu
-        self.meal = Meals.query.filter_by(meal_name='Chips').first()
-        self.new_menu = Menu(menu_id = self.meal.menu_id, menu_name = "Chips", menu_price = 200,
-            menu_category = "lunch", menu_day = 'monday')
+        self.meal = Meals.query.filter_by(meal_name='beef').first()
+        self.new_menu = Menu(meal_relelation= self.meal, menu_id= uuid.uuid4())
         db.session.add(self.new_menu)
         db.session.commit()
 
         #Add meal in menu to order
-        self.menu = Menu.query.filter_by(menu_name='Rice').first()
-        self.new_order = Orders(order_id = self.menu.menu_id, order_name = 'Rice ', order_price = 200,
-            order_category = 'lunch', order_day = 'monday', order_qty=1, order_user = 'quantum')
+        self.menu = Menu.query.filter_by(menu_id=uuid.uuid4()).first()
+        print(self.menu)
+        self.new_order = Orders(order_id= uuid.uuid4(),order_qty=4)
         db.session.add(self.new_order)
         db.session.commit()
 
