@@ -10,7 +10,7 @@ from flask_jwt_extended import (
 #local Imports
 from app.views.authenticate import Signup, Login 
 from app.views.meals import MealOptions, MealLists
-from app.views.menu  import MenuOptions,MenuList
+from app.views.menu  import MenuOptions, MenuList
 from app.views.orders import Orders, OrderLists
 from instance.config import config
 
@@ -30,12 +30,12 @@ def create_app(config_filename):
 
     api.add_resource(Signup, '/api/v2/auth/signup')
     api.add_resource(Login, '/api/v2/auth/login')
+    api.add_resource(MealOptions,'/api/v2/meals/<int:id>')
     api.add_resource(MealLists, '/api/v2/meals')
-    api.add_resource(MealOptions, '/api/v2/meals/<int:id>')
+    api.add_resource(MenuOptions,'/api/v2/menus/<int:id>')
     api.add_resource(MenuList, '/api/v2/menus')
-    api.add_resource(MenuOptions, '/api/v2/menus/<int:id>')
+    api.add_resource(Orders,  '/api/v2/orders/<int:id>')
     api.add_resource(OrderLists, '/api/v2/orders')
-    api.add_resource(Orders, '/api/v2/orders/<int:id>')
     
 
 

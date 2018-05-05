@@ -31,7 +31,7 @@ class MenuOptions(Resource):
         json_data = request.get_json(force=True)
         menu = Menu.query.filter_by(id=id).first()
         if 'meal_id' not in json_data or 'menu_item' not in json_data:
-            return {"status":"Failed!","data":"Please provide a meal_id and menu_item to update."}
+            return {"status":"Failed!","message":"Please provide a meal_id and menu_item to update."}
         if  menu is None:
             return {"status":"Failed!!",
             "message":"Menu id does not exist.Please enter a valid meal id"}
@@ -85,24 +85,31 @@ class MenuList(Resource):
     @require_admin
     def post(self):
         """
-         Method creates a menu.
+         Method creates a menu and add meals to the Item
         """
         json_data = request.get_json(force=True)
         
-        if 'meal_id'not in json_data or 'menu_item' not in json_data:
+        if 'meal_id'not in json_data or 'menu_cartegory' not in json_data:
             return {"status":"Failed!",
-                    "message":"Please a valid provide a meal_id and menu_item to create menu."}
-        menu_item = json_data['menu_item']
+                    "Message":"Please a valid provide a meal_id and menu_cartegory in [Breakfast,Beverages,Lunch,,Super] to add to the menu."}
+       
+        # menu_cart = ['Breakfast', 'Beverages', 'Lunch', 'Super']
+        # check_cart = [u for u in menu_cart if not u]
+        
+        # if not check_cart:
+        #     return {'status':"Failure", 'message':'Enter {}'.format(menu_cart)}
+        
+        menu_item = json_data['menu_cartegory']
         meal_id   = json_data['meal_id']
         meal= Meal.query.filter_by(id=meal_id).first()
         if menu_item == '':
             return {"status":"Failed",
-            "message":"Menu item can not be empty.Please enter a valid menu item"}
+            "message":"Meal name can not be empty.Please enter a valid menu item"}
         elif meal_id == '' :
             return {"status":"Failed",
             "message":"Meal id can not be empty.Please enter a valid meal id"}
         if  meal is None:
-            return {"status":"Failed!!","data":"Please enter a valid meal id"}
+            return {"status":"Failed!!","message":"Please enter a valid meal id"}
         menu = Menu(meal_id=meal_id,menu_item=menu_item)
         menu.save()
         response = json.loads(json.dumps(menu.json_dump()))

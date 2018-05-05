@@ -1,67 +1,85 @@
+'''This contains a a basetest case'''
+from datetime import datetime
 from unittest import TestCase
-import uuid
-import sys #fixes import errors
-import os
-sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+import json
+# local imports
 
 from app import create_app
-from instance.config import config
-from app.models import User, Orders, Menu, db, Meals
+from app.models import db
+from app.models import User, Meal, Menu, Order
 
-class GroundTests(TestCase):
-    '''The Founding tests for the DB'''
+
+SIGNUP_URL = '/api/v2/auth/signup'
+SIGNIN_URL = '/api/v2/auth/signin'
+
+
+class BaseTestClass(TestCase):
+    '''An abstract base class for tests, contains
+    all common variables methods'''
+
     def setUp(self):
-        '''The first step for it's run'''
+        self.maxDiff = None
         self.app = create_app(config['testing'])
+        self.client = self.app.test_client()
         self.app_context = self.app.app_context()
         self.app_context.push()
-        db.session.commit()
-        db.drop_all()
-        db.create_all()
- 
-        #Create a new user
-        self.new_user = User(user_id = int(uuid.uuid4()), username="quantum", password="secret", admin=True)
-        db.session.add(self.new_user)
-        db.session.commit()
+        self.database = DB
+        DB.drop_all()
+        DB.create_all()
 
-        #Add new meal
-        self.new_meal = Meals(meal_id = int(uuid.uuid4()), meal_name = "Rice", meal_price = 200,
-            meal_category = "lunch", meal_day = 'monday')
-        db.session.add(self.new_meal)
-        db.session.commit()
+        self.test_user = {'username': 'Mike', 'email': 'mike@mail.com', 'password': 'password', address = '28 kitale'}
+        self.admin_user = dict(username='admin', email='admin@mail.com', password='admin1234', address='34 Eld' ,admin=True)
+        self.meal_model = Meal
+        self.order_model = Order
+        self.menu_model = Menu
+        self.order_model = Order
+        self.user_model = User
+        self.user1 = User(email='mike@mail.com', password='password')
+        self.user2 = User(email='leah@mail.com',  password='password')
 
-        #Add new meal 2
-        self.new_meal = Meals(meal_id = int(uuid.uuid4()), meal_name = "beef", meal_price = 300,
-            meal_category = "lunch", meal_day = 'tuesday')
-        db.session.add(self.new_meal)
-        db.session.commit()
+        self.menu = Menu()
+        self.menu1 = Menu(date=datetime(year=2018, month=4, day=18))
+        self.menu2 = Menu(date=datetime(year=2018, month=4, day=19))
 
-        #Add meal to menu
-        self.meal = Meals.query.filter_by(meal_name='beef').first()
-        self.new_menu = Menu(meal_relelation= self.meal, menu_id= uuid.uuid4())
-        db.session.add(self.new_menu)
-        db.session.commit()
+        self.meal1 = Meal(name='Rice & Beef', price=100.00, description='Rice with beef. Yummy.')
+        self.meal2 = Meal(name='Ugali Fish', price=150.00,
+                          description='Ugali and fish, Nyanza tings!')
+        self.meal3 = Meal(name='Muthokoi', price=100.00, description='Kamba tributes')
 
-        #Add meal in Items to order
-        self.new_order = Orders(order_qty=4,meal_id= self.meal.meal_id)
-        db.session.add(self.new_order)
-        db.session.commit()
+    def create_user(self):
+        '''create test user'''
+        user = self.user_model(username=self.test_user['username'], email=self.test_user['email'],
+                               password=self.test_user['password'])
+        user.save()
+        return user
+    
+    def login_user(self):
+        '''login test user'''
+        self.create_user()
+        username = self.test_user['username']
+        password = self.test_user['password']
+        user_info = dict(username=username, password=password)
+        res = self.client.post(SIGNIN_URL, data=json.dumps(user_info))
+        return res
 
-        #Add new meal 2
-        self.new_meal2 = Meals(meal_id = uuid.uuid4(), meal_price='200', meal_name = "Black Coffee",
-            meal_category = "breakfast", meal_day = 'tuesday')
-        db.session.add(self.new_meal2)
-        db.session.commit()
+    def login_admin(self):
+        '''helper function to create an admin user and log them in '''
+        res = self.client.post(SIGNUP_URL, data=json.dumps(self.admin_user))
+        assert(res.status_code, 201)
+        data = {'password': self.admin_user['password'], 'username': self.admin_user['username']}
+        res = self.client.post(SIGNIN_URL, data=json.dumps(data))
+        assert(res.status_code, 200)
+        return res
 
-        #Add meal to menu 2
-        self.meal2 = Meals.query.filter_by(meal_name='Tea').first()
-        self.new_menu2 = Menu(meal_relelation= self.meal, menu_id= uuid.uuid4())
-        db.session.add(self.new_menu2)
-        db.session.commit()
-
-        self.tester = self.app.test_client()
+    def create_meal(self):
+        '''helper function to populate Meals so tests on menu and orders 
+        can work'''
+        meal = self.meal_model(name='Fish', price=100, description='Tasty Tilapia')
+        meal.save()
+        return meal
 
     def tearDown(self):
-        db.session.remove()
-        db.drop_all()
+        # reset all database entries to empty dicts
+        DB.session.remove()
+        DB.drop_all()
         self.app_context.pop()

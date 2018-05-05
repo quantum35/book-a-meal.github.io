@@ -15,11 +15,11 @@ class User(db.Model):
     email = db.Column(db.String(50), nullable=False, unique=True)
     password = db.Column(db.String(80), nullable=False)
     address = db.Column(db.String(80), nullable=False)
-    is_admin   = db.Column(db.Boolean, default = False)
+    is_admin   = db.Column(db.Boolean, default = True)
     orders   = db.relationship('Order', backref='owner,', passive_deletes=True)
     meals   = db.relationship('Meal', backref='owner', passive_deletes=True)
 
-    def __init__(self, email,username, password, address):
+    def __init__(self, username, email, password, address):
         """Initialize the user with an email,orders and a password."""
         self.email = email
         self.username = username
@@ -58,21 +58,24 @@ class Meal(db.Model):
     __tablename__ = 'meals'
     id   = db.Column(db.Integer, primary_key=True)
     meal_name = db.Column(db.String(100), nullable=False)
-    menu_items   = db.relationship('Menu', passive_deletes=True, backref=db.backref('meal'))
+    menu_items   = db.relationship('Menu', passive_deletes=True, backref=db.backref('meals'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id',ondelete='CASCADE'))
     date_created = db.Column(
         db.TIMESTAMP, server_default=db.func.current_timestamp(),
         nullable=False)
+    meal_price = db.Column(db.Float, nullable=False)
 
-    def __init__(self, meal_name):
+    def __init__(self, meal_name, meal_price):
         """ Initialize with name of meal """
         self.meal_name = meal_name
+        self.meal_price = meal_price
     
     def json_dump(self):
         """ Method to return a meal as a dict."""
         return dict(
             id= self.id,
             meal_name=self.meal_name,
+            meal_price = self.meal_price,
             menu_items=[menu.json_dump() for menu in self.menu_items],
             date_created=str(self.date_created)
         )

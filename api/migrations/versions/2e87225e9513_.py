@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 1cd80909bfc9
+Revision ID: 2e87225e9513
 Revises: 
-Create Date: 2018-05-05 07:35:30.927453
+Create Date: 2018-05-05 11:50:47.722110
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '1cd80909bfc9'
+revision = '2e87225e9513'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,16 +23,17 @@ def upgrade():
     sa.Column('username', sa.String(length=50), nullable=False),
     sa.Column('email', sa.String(length=50), nullable=False),
     sa.Column('password', sa.String(length=80), nullable=False),
+    sa.Column('address', sa.String(length=80), nullable=False),
     sa.Column('is_admin', sa.Boolean(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('email'),
-    sa.UniqueConstraint('username')
+    sa.UniqueConstraint('email')
     )
     op.create_table('meals',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('meal_name', sa.String(length=100), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('date_created', sa.TIMESTAMP(), server_default=sa.text('CURRENT_TIMESTAMP'), nullable=False),
+    sa.Column('meal_price', sa.Float(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )

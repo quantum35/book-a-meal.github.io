@@ -34,7 +34,7 @@ class MealOptions(Resource):
         """
         json_data = request.get_json(force=True)
         meal_name = json_data['meal_name']
-        price = json_data['price']
+        meal_price = json_data['price']
         meal = Meal.query.filter_by(id=id).first()
         if 'meal_name' not in json_data or 'price' not in json_data:
             return {"status":"Failure","data":"Please provide a meal a name or price."}
@@ -46,6 +46,7 @@ class MealOptions(Resource):
             "message":"Meal name can not be empty.Please enter a valid meal details"}
         else:
             meal.meal_name = meal_name
+            meal.meal_price = meal_price
             db.session.commit()
             response = meal.json_dump()
             return{"status": "success", "data": response}, 200
@@ -88,12 +89,13 @@ class MealLists(Resource):
         """
         json_data = request.get_json(force=True)
         meal_name = json_data['meal_name']
-        if 'meal_name' not in json_data:
-            return {"status":"Failed!","data":"Please provide a meal a name."}
-        if meal_name == '':
+        meal_price = json_data['price']
+        if 'meal_name' not in json_data or 'price' not in json_data:
+            return {"status":"Failed!","data":"Please provide a meal a Details."}
+        if meal_name == '' or meal_price =='':
             return {"status":"Failed",
-            "message":"Meal name can not be empty.Please enter a valid meal name"}
-        meal = Meal(meal_name=meal_name)
+            "message":"Meal name can not be empty.Please enter a valid meal Details"}
+        meal = Meal(meal_name=meal_name, meal_price = meal_price)
         meal.save()
         response = json.loads(json.dumps(meal.json_dump()))
         return {"status": "success", "data": response}, 201
