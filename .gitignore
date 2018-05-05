@@ -7,4 +7,22 @@ __pycache__
 __pycache__
 .pycvscode
 .vscode
- 
+ _pycache__/
+*.py[cod]
+*$py.class
+.cache
+instance/
+.webassets-cache
+.env
+.venv
+env/
+ENV/
+env.bak/
+venv.bak/
+.vscode
+.__init__.py
+.pyc
+pyc
+.coverage
+*env
+*pyc

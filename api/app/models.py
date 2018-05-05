@@ -1,96 +1,135 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
 import jwt
 from datetime import datetime, timedelta
-from os import getenv
-
-# initialize sql-alchemy
 db = SQLAlchemy()
 
+from flask_bcrypt import Bcrypt
 
 class User(db.Model):
-	"""docstring for General Users"""
-	__tablename__ = "users"
-	id = db.Column(db.Integer, primary_key = True, nullable=False)
-	public_user_id = db.Column(db.String, nullable=False)
-	name = db.Column(db.String(50), nullable=False)
-	email = db.Column(db.String(100), unique=True, nullable=False )
-	password = db.Column(db.String(80), nullable=False)
-	# conf_password = db.Column(db.String(80), nullable=False)
-	address = db.Column(db.String(120), nullable=False)
-	admin = db.Column(db.Boolean, default = True)
-	#user
-	order_placed = db.relationship('Orders', backref='users', lazy=True)
+    """This class defines the users table """
 
-	#admin
-	menu_added = db.relationship('Menu', backref='users', lazy=True)
-	#admin
-	
-	def __init__(self, public_user_id, name, email, password, address):
-		self.name = name
-		self.email = email
-		self.password = password
-		self.public_user_id = public_user_id
-		self.address = address
+    __tablename__ = 'users'
 
-	def __repr__(self):	
-		'''db string for representing the user Object'''
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(50), nullable=False, unique=True)
+    password = db.Column(db.String(80), nullable=False)
+    address = db.Column(db.String(80), nullable=False)
+    is_admin   = db.Column(db.Boolean, default = False)
+    orders   = db.relationship('Order', backref='owner,', passive_deletes=True)
+    meals   = db.relationship('Meal', backref='owner', passive_deletes=True)
 
-		return '<User {}>'.format(self.user_id)
+    def __init__(self, email,username, password, address):
+        """Initialize the user with an email,orders and a password."""
+        self.email = email
+        self.username = username
+        self.password = Bcrypt().generate_password_hash(password).decode()
+        self.address = address
 
-	@staticmethod
-	def promote_user(user):
-			user.admin = True
-			user.save()
+    def password_is_valid(self, password):
+        """
+        Checks the password against it's hash to validates the user's password
+        """
+        return Bcrypt().check_password_hash(self.password, password)
 
+    
 
-class Meals(db.Model):
-	"""docstring for Meals"""
-	__tablename__ = "meals"
-	id = db.Column(db.Integer, primary_key = True)
-	meal_id = db.Column(db.String(50), unique = True)
-	meal_name = db.Column(db.String(50))
-	meal_price = db.Column(db.Integer)
-	meal_category = db.Column(db.String(50))
-	menu_id = db.relationship('Menu', backref='meals', lazy=True)
+    def save(self):
+        """Save a user to the database.
+        This includes creating a new user and editing one.
+        """
+        db.session.add(self)
+        db.session.commit()
 
-	def __init__(self, meal_id,
-				 meal_name,
-				 meal_price, meal_category):
-		self.meal_id = meal_id
-		self.meal_name = meal_name
-		self.meal_price = meal_price
-		self.meal_category = meal_category
+    def json_dump(self):
+        return dict(
+            id = self.id,
+            email=self.email,
+            username=self.username,
+            is_admin=self.is_admin,
+            orders = self.orders,
+            meals= self.meals
+        )
+class Meal(db.Model):
+    """
+    Meal model to define the meal. 
+    """
 
-	def __repr__(self):
-		return '<Meals {}>'.format(self.meal_id)
+    __tablename__ = 'meals'
+    id   = db.Column(db.Integer, primary_key=True)
+    meal_name = db.Column(db.String(100), nullable=False)
+    menu_items   = db.relationship('Menu', passive_deletes=True, backref=db.backref('meal'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id',ondelete='CASCADE'))
+    date_created = db.Column(
+        db.TIMESTAMP, server_default=db.func.current_timestamp(),
+        nullable=False)
+
+    def __init__(self, meal_name):
+        """ Initialize with name of meal """
+        self.meal_name = meal_name
+    
+    def json_dump(self):
+        """ Method to return a meal as a dict."""
+        return dict(
+            id= self.id,
+            meal_name=self.meal_name,
+            menu_items=[menu.json_dump() for menu in self.menu_items],
+            date_created=str(self.date_created)
+        )
+
+    def save(self):
+        """ Save the meal to database"""
+        db.session.add(self)
+        db.session.commit()
 
 class Menu(db.Model):
-	"""docstring for Meals"""
-	__tablename__ = "menu"
-	id = db.Column(db.Integer, primary_key = True)
-	menu_id = db.Column(db.String(50), unique = True)
-	user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-	meal_id = db.Column(db.Integer, db.ForeignKey('meals.id'), nullable=False)
-	
-	
-	def __init__(self, menu_id):
-		self.menu_id = menu_id
+    """
+    Menu model to define the menu. 
+    """
+    __tablename__ = 'menus'
+    id = db.Column(db.Integer, primary_key=True)
+    menu_item = db.Column(db.String(100), nullable=False)
+    meal_id = db.Column(db.Integer, db.ForeignKey('meals.id',ondelete='CASCADE'))
+    date_created = db.Column(
+        db.TIMESTAMP, server_default=db.func.current_timestamp(),
+        nullable=False)
 
-	def __repr__(self):
-		return '<Menu {}>'.format(self.menu_id)
 
-class Orders(db.Model):
-	"""docstring for Orders"""
-	__tablename__ = "orders"
-	id = db.Column(db.Integer, primary_key = True)
-	order_id = db.Column(db.String(50), unique = True)
-	order_date = db.Column(db.DateTime, default=datetime.today())
-	user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-	menu_id = db.Column(db.Integer, db.ForeignKey('menu.id'), nullable=False)
+    def json_dump(self):
+        """ Method to return a meal as a dict."""
+        return dict(
+            id = self.id,
+            meal_id=self.meal_id,
+            menu_item=self.menu_item,
+            date_created=str(self.date_created))
 
-	def __init__(self, order_id):
-		self.order_id = order_id
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
 
-	def __repr__(self):
-		return '<Orders {}>'.format(self.order_id)
+class Order(db.Model):
+    """
+    Order model to define the orders. 
+    """
+    __tablename__ = 'orders'
+    id = db.Column(db.Integer, primary_key=True)
+    item_id = db.Column(db.Integer,db.ForeignKey('menus.id'))
+    quantity = db.Column(db.Integer, default=1)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id',ondelete='CASCADE'))
+    date_created = db.Column(
+        db.TIMESTAMP, server_default=db.func.current_timestamp(),
+        nullable=False)
+
+
+    def json_dump(self):
+        """ Method to return an order as a dict."""
+        return dict(
+            user_id=self.user_id,
+            item_id = self.item_id,
+            quantity = self.quantity,
+            date_created=str(self.date_created))
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+    
