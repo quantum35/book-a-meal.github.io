@@ -15,7 +15,7 @@ services:
 before_script:
   - source .travis.sh
   - source ../../.travis.sh
-  - psql -c 'create database test;' -U postgres
+  - psql -c 'create database testchal_Booka_meal;' -U postgres
 
 script: 
 
