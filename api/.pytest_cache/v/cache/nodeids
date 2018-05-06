@@ -1,0 +1,21 @@
+[
+  "test/test_authentication.py::TestAuthenitication::test_already_registered_user",
+  "test/test_authentication.py::TestAuthenitication::test_login",
+  "test/test_authentication.py::TestAuthenitication::test_non_registered_user_login",
+  "test/test_authentication.py::TestAuthenitication::test_registration",
+  "test/test_meals.py::TestMeal::test_create_meals",
+  "test/test_meals.py::TestMeal::test_get_meal_by_id",
+  "test/test_meals.py::TestMeal::test_get_meals",
+  "test/test_meals.py::TestMeal::test_meal_delete",
+  "test/test_meals.py::TestMeal::test_meal_update",
+  "test/test_menu.py::TestMenu::test_create_menus",
+  "test/test_menu.py::TestMenu::test_get_menu_by_id",
+  "test/test_menu.py::TestMenu::test_get_menus",
+  "test/test_menu.py::TestMenu::test_menu_delete",
+  "test/test_menu.py::TestMenu::test_menu_update",
+  "test/test_orders.py::TestOrder::test_create_orders",
+  "test/test_orders.py::TestOrder::test_get_order_by_id",
+  "test/test_orders.py::TestOrder::test_get_orders",
+  "test/test_orders.py::TestOrder::test_order_delete",
+  "test/test_orders.py::TestOrder::test_order_update"
+]

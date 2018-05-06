@@ -17,14 +17,9 @@ script:
 
 - cd api
 - ls la
-- cd test 
-- ls -la
 
 #  - nosetests --with-coverage --cover-package api
-- nosetests test_authentication.py
-- nosetests test_meals.py
-- nosetests test_menu.py
-- nosetests test_orders.py
+- python -m pytest --cov-report term-missing --cov=app
 
 after_success:
 
