@@ -6,8 +6,17 @@ python:
 install:
   - pip install -r requirements.txt
   - cd api
+  - cd test
   - ls -la 
-  
+
+services:
+  - postgresql
+
+before_script:
+  - source .travis.sh
+  - source ../../.travis.sh
+  - psql -c 'create database test;' -U postgres
+
 script: 
 
  - nosetests --with-coverage --cover-package app
