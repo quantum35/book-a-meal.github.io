@@ -18,4 +18,5 @@ script:
  - nosetests --with-coverage --cover-package api
 
 after_success:
-  - coveralls 
+  - coverage run --source='.' --omit='run.py','manage.py' 
+  - coveralls
