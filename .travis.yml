@@ -5,16 +5,12 @@ python:
 
 install:
   - pip install -r requirements.txt
-  - cd api
-  - cd test
-  - ls -la 
 
 services:
   - postgresql
 
 before_script:
-  - source .travis.sh
-  - source ../../.travis.sh
+  - source ./.travis.sh
   - psql -c 'create database testchal_Booka_meal;' -U postgres
 
 script: 
