@@ -3,7 +3,7 @@ from os import getenv
 
 class BaseConfig(object):
 	"""docstring for BaseConfig"""
-	DEBUG = False
+	DEBUG = True
 	#SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 	SQLALCHEMY_TRACK_MODIFICATIONS = True
 
@@ -23,6 +23,7 @@ class TestConfig(BaseConfig):
 	DEBUG = True
 	SQLALCHEMY_TRACK_MODIFICATIONS = True
 	# SQLALCHEMY_DATABASE_URI = "postgresql://localhost/testbook_amealdb"
+	SQLALCHEMY_DATABASE_URI = "postgresql://localhost/ testchal_Booka_meal"
 	SQLALCHEMY_DATABASE_URI = getenv('TESTING_DATABASE_URI')
 
 
