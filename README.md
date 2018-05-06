@@ -21,17 +21,17 @@ This Project is Composed Of Two Parts
 ## Prerequisites
 Ensure you Have The Following:
 
-    ```
-    1.Postgres
-    2.Python version 3 and above
-    3.Virtualenv
-    4.Flask
-    5.Postman
-    ```
-### Download latest version of python [here](https://www.python.org/downloads/release/python-365/)
-### Creating virtual environment [here](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
-### Find instruction of installing  Flask [here](http://flask.pocoo.org/docs/1.0/installation/)
-### Download Postman [here](https://www.getpostman.com)
+```
+1.Postgres
+2.Python version 3 and above
+3.Virtualenv
+4.Flask
+5.Postman
+```
+##### Download latest version of python [here](https://www.python.org/downloads/release/python-365/)
+##### Creating virtual environment [here](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
+##### Find instruction of installing  Flask [here](http://flask.pocoo.org/docs/1.0/installation/)
+##### Download Postman [here](https://www.getpostman.com)
 
 ## Dependencies
 - Install the project dependencies:
