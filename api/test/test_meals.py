@@ -21,11 +21,11 @@ class TestMeal(unittest.TestCase):
             "username": "admin",
             "email": "admin@andela.ke",
             "password": "admin123",
-            "address":"kitale 12"
+            "address": "kitale 12"
             }
 
-        self.data = {"meal_name": "Chips", "price":1000}
-        self.data1 = {"meal_name": "Ugali", "price":200}
+        self.data = {"meal_name": "Chips", "price": 1000}
+        self.data1 = {"meal_name": "Ugali", "price": 200}
 
         with self.app.app_context():
             """ create all tables """
@@ -33,9 +33,11 @@ class TestMeal(unittest.TestCase):
             db.drop_all()
             db.create_all()
 
-        self.client().post("api/v2/auth/signup", data=json.dumps(self.userdata),
+        self.client().post("api/v2/auth/signup", 
+                           data=json.dumps(self.userdata),
                            content_type='application/json')
-        login = self.client().post('/api/v2/auth/login', data=json.dumps(self.userdata),
+        login = self.client().post('/api/v2/auth/login', 
+                                   data=json.dumps(self.userdata),
                                    content_type='application/json')
         self.token = json.loads(login.data.decode()).get('token')
 

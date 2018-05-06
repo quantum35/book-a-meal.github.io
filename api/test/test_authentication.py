@@ -6,6 +6,7 @@ from app import create_app
 from app.models import db
 from instance.config import config
 
+
 class TestAuthenitication(unittest.TestCase):
     """
     Authenitication class to test the login and registration endpoints.
@@ -20,7 +21,7 @@ class TestAuthenitication(unittest.TestCase):
             "username": "admin",
             "email": "admin@andela.ke",
             "password": "admin123",
-            "address":"kitale 12"
+            "address": "kitale 12"
         }
         with self.app.app_context():
             """ create all tables """
@@ -29,26 +30,35 @@ class TestAuthenitication(unittest.TestCase):
             db.create_all()
 
     def test_registration(self):
-        """ Verify user registration works correctly """
-        res = self.client().post("api/v2/auth/signup", data=json.dumps(self.data),
+        """ 
+        Verify user registration works correctly 
+        """
+        res = self.client().post("api/v2/auth/signup", 
+                                 data=json.dumps(self.data),
                                  content_type='application/json')
         self.assertEqual(res.status_code, 201)
 
     def test_already_registered_user(self):
-        """Verify that a user cannot be registered twice."""
-        res = self.client().post('/api/v2/auth/signup', data=json.dumps(self.data),
+        """
+        Verify that a user cannot be registered twice.
+        """
+        res = self.client().post('/api/v2/auth/signup', 
+                                 data=json.dumps(self.data),
                                  content_type='application/json')
         self.assertEqual(res.status_code, 201)
-        second_res = self.client().post('/api/v2/auth/signup', data=json.dumps(self.data),
+        second_res = self.client().post('/api/v2/auth/signup', 
+                                        data=json.dumps(self.data),
                                         content_type='application/json')
         self.assertEqual(second_res.status_code, 302)
 
     def test_login(self):
         """ Verify a registered user can login"""
-        res = self.client().post('/api/v2/auth/signup', data=json.dumps(self.data),
+        res = self.client().post('/api/v2/auth/signup', 
+                                 data=json.dumps(self.data),
                                  content_type='application/json')
         self.assertEqual(res.status_code, 201)
-        login_response = self.client().post('/api/v2/auth/login', data=json.dumps(self.data),
+        login_response = self.client().post('/api/v2/auth/login', 
+                                            data=json.dumps(self.data),
                                             content_type='application/json')
         self.assertEqual(login_response.status_code, 200)
 
@@ -58,6 +68,7 @@ class TestAuthenitication(unittest.TestCase):
             'email': 'cuhicuhi@example.com',
             'password': 'yesnoyesno'
         }
-        res = self.client().post('/api/v2/auth/login', data=json.dumps(not_a_user),
+        res = self.client().post('/api/v2/auth/login', 
+                                 data=json.dumps(not_a_user),
                                  content_type='application/json')
         self.assertEqual(res.status_code, 401)
