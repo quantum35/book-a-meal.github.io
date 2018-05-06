@@ -15,7 +15,16 @@ before_script:
 
 script: 
 
- - nosetests --with-coverage --cover-package app
+- cd api
+- ls la
+- cd test 
+- ls -la
+
+#  - nosetests --with-coverage --cover-package api
+- nosetests test_authentication.py
+- nosetests test_meals.py
+- nosetests test_menu.py
+- nosetests test_orders.py
 
 after_success:
 
