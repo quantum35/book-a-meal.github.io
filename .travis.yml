@@ -15,7 +15,7 @@ before_script:
 
 script: 
 
- - nosetests --with-coverage --cover-package api
+ - nosetests --with-coverage --cover-package app
 
 after_success:
 
