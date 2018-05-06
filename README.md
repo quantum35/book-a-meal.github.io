@@ -1,5 +1,6 @@
 # BOOK A MEAL
 [![Build Status](https://travis-ci.org/quantum35/book-a-meal.github.io.svg?branch=feature%2Fchallenge3)](https://travis-ci.org/quantum35/book-a-meal.github.io)
+[![Build Status](https://travis-ci.org/quantum35/book-a-meal.github.io.svg?branch=feature%2Fdevelop)](https://travis-ci.org/quantum35/book-a-meal.github.io)
 
 Book-A-Meal is an application that allows customers to make food orders and helps the food vendor know what the customers want to eat.
 This Project Was created Using  Stories From Pivotal Tracker [here](https://www.pivotaltracker.com/n/projects/2165741) intergrated to Github Using Its API Token
