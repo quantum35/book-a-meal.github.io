@@ -32,8 +32,8 @@ def create_app(config_filename):
     api.add_resource(Login, '/api/v2/auth/login')
     api.add_resource(MealOptions,'/api/v2/meals/<int:id>')
     api.add_resource(MealLists, '/api/v2/meals')
-    api.add_resource(MenuOptions,'/api/v2/menus/<int:id>')
-    api.add_resource(MenuList, '/api/v2/menus')
+    api.add_resource(MenuOptions,'/api/v2/menu/<int:id>')
+    api.add_resource(MenuList, '/api/v2/menu')
     api.add_resource(Orders,  '/api/v2/orders/<int:id>')
     api.add_resource(OrderLists, '/api/v2/orders')
     

@@ -1,9 +1,10 @@
 from flask_sqlalchemy import SQLAlchemy
 import jwt
 from datetime import datetime, timedelta
+from flask_bcrypt import Bcrypt
+
 db = SQLAlchemy()
 
-from flask_bcrypt import Bcrypt
 
 class User(db.Model):
     """This class defines the users table """
@@ -15,9 +16,11 @@ class User(db.Model):
     email = db.Column(db.String(50), nullable=False, unique=True)
     password = db.Column(db.String(80), nullable=False)
     address = db.Column(db.String(80), nullable=False)
-    is_admin   = db.Column(db.Boolean, default = True)
+    admin   = db.Column(db.Boolean, default = False)
     orders   = db.relationship('Order', backref='owner,', passive_deletes=True)
     meals   = db.relationship('Meal', backref='owner', passive_deletes=True)
+    menus = db.relationship('Menu', backref='owner', passive_deletes=True)
+    
 
     def __init__(self, username, email, password, address):
         """Initialize the user with an email,orders and a password."""
@@ -46,7 +49,7 @@ class User(db.Model):
             id = self.id,
             email=self.email,
             username=self.username,
-            is_admin=self.is_admin,
+            admin=self.admin,
             orders = self.orders,
             meals= self.meals
         )
@@ -65,10 +68,11 @@ class Meal(db.Model):
         nullable=False)
     meal_price = db.Column(db.Float, nullable=False)
 
-    def __init__(self, meal_name, meal_price):
+    def __init__(self, meal_name, meal_price, user_id):
         """ Initialize with name of meal """
         self.meal_name = meal_name
         self.meal_price = meal_price
+        self.user_id = user_id
     
     def json_dump(self):
         """ Method to return a meal as a dict."""
@@ -93,6 +97,8 @@ class Menu(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     menu_item = db.Column(db.String(100), nullable=False)
     meal_id = db.Column(db.Integer, db.ForeignKey('meals.id',ondelete='CASCADE'))
+    user_id = db.Column(db.Integer, db.ForeignKey(
+        'users.id', ondelete='CASCADE'))
     date_created = db.Column(
         db.TIMESTAMP, server_default=db.func.current_timestamp(),
         nullable=False)
@@ -104,6 +110,7 @@ class Menu(db.Model):
             id = self.id,
             meal_id=self.meal_id,
             menu_item=self.menu_item,
+            user_id=self.user_id,
             date_created=str(self.date_created))
 
     def save(self):
@@ -116,7 +123,8 @@ class Order(db.Model):
     """
     __tablename__ = 'orders'
     id = db.Column(db.Integer, primary_key=True)
-    item_id = db.Column(db.Integer,db.ForeignKey('menus.id'))
+    item_id = db.Column(db.Integer, db.ForeignKey(
+        'menus.id', ondelete='CASCADE'))
     quantity = db.Column(db.Integer, default=1)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id',ondelete='CASCADE'))
     date_created = db.Column(

@@ -1,4 +1,4 @@
-""" Testcases for menus endpoints"""
+""" Testcases for the orders endpoints"""
 import unittest
 import json
 
@@ -7,25 +7,26 @@ from app.models import db
 from instance.config import config
 
 
-class TestMenu(unittest.TestCase):
+class TestOrder(unittest.TestCase):
     """
-    Menu Test class to test create,get,update and delete endpoints.
+    order Test class to test create,get,update and delete endpoints.
     """
 
     def setUp(self):
         """ Set up test Variables"""
-        self.app = create_app(config['testing'])
+        self.app = create_app(config["testing"])
         # initialize the test client
         self.client = self.app.test_client
         self.userdata = {
             "username": "admin",
             "email": "admin@andela.ke",
             "password": "admin123",
-            "address":"kitale 21"
+            "address":"kitale 12"
             }
         self.meal = {"meal_name": "Chips", "price":1000}
-        self.data = {"meal_id": 1, "meal_item": "Breakfast"}
-        self.data1 = {"meal_id": 1, "meal_item": "Lunch"}
+        self.menu = {"meal_id": 1, "meal_item": "Lunch"}
+        self.data = {"item_id": 1, "quantity": 4}
+        self.data1 = {"item_id": 1, "quantity": 35}
 
         with self.app.app_context():
             """ create all tables """
@@ -41,51 +42,55 @@ class TestMenu(unittest.TestCase):
                            data=json.dumps(self.meal),
                            content_type="application/json",
                            headers=dict(Authorization="Bearer " + self.token))
+        self.client().post('/api/v2/menus',
+                           data=json.dumps(self.menu),
+                           content_type="application/json",
+                           headers=dict(Authorization="Bearer " + self.token))
 
-    def test_get_menus(self):
-        """Test get all meal items endpoints"""
-        res = self.client().get('/api/v2/menus',
+    def test_get_orders(self):
+        """Test get all orders enpoint"""
+        res = self.client().get('/api/v2/orders',
                                 headers=dict(Authorization="Bearer " + self.token))
         self.assertEqual(res.status_code, 200)
 
-    def test_create_menus(self):
-        """Test create meal items endpoint"""
-        res = self.client().post('/api/v2/menus',
+    def test_create_orders(self):
+        """ Test create orders endpoint"""
+        res = self.client().post('/api/v2/orders',
                                  data=json.dumps(self.data),
                                  content_type="application/json",
                                  headers=dict(Authorization="Bearer " + self.token))
-        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.status_code, 404)
 
-    def test_get_menu_by_id(self):
-        """ Test get meal item by id"""
-        self.client().post("/api/v2/menus",
+    def test_get_order_by_id(self):
+        """Test get order by id """
+        self.client().post("/api/v2/orders",
                            data=json.dumps(self.data),
                            content_type="application/json",
                            headers=dict(Authorization="Bearer " + self.token))
-        res2 = self.client().get('/api/v2/menus/1',
+        res2 = self.client().get('/api/v2/orders/1',
                                  content_type="application/json",
                                  headers=dict(Authorization="Bearer " + self.token))
         self.assertEqual(res2.status_code, 200)
 
-    def test_menu_update(self):
-        """ Test meal item update"""
-        self.client().post('/api/v2/menus',
+    def test_order_update(self):
+        """Test order update endpoint"""
+        self.client().post('/api/v2/orders',
                            data=json.dumps(self.data),
                            content_type="application/json",
                            headers=dict(Authorization="Bearer " + self.token))
-        res = self.client().put('/api/v2/menus/1',
+        res = self.client().put('/api/v2/orders/1',
                                 data=json.dumps(self.data1),
                                 content_type="application/json",
                                 headers=dict(Authorization="Bearer " + self.token))
-        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.status_code, 404)
 
-    def test_menu_delete(self):
-        """Test meal item deletion"""
-        self.client().post('/api/v2/menus',
+    def test_order_delete(self):
+        """Test order delete endpoint"""
+        self.client().post('/api/v2/orders',
                            data=json.dumps(self.data),
                            content_type="application/json",
                            headers=dict(Authorization="Bearer " + self.token))
-        res = self.client().delete('/api/v2/menus/1',
+        res = self.client().delete('/api/v2/orders/1',
                                    data=json.dumps(self.data),
                                    content_type="application/json",
                                    headers=dict(Authorization="Bearer " + self.token))
