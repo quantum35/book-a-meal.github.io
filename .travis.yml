@@ -16,7 +16,6 @@ before_script:
 script: 
 
 - cd api
-- ls la
 
 - nosetests --with-coverage --cover-package app
 
