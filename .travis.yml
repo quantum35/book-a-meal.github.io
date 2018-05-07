@@ -19,7 +19,6 @@ script:
 - ls la
 
 - nosetests --with-coverage --cover-package app
-- python -m pytest --cov-report term-missing --cov=app
 
 after_success:
 

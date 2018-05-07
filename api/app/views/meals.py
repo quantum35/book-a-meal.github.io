@@ -131,7 +131,6 @@ class MealLists(Resource):
                     meal_price=meal_price)
         meal.save()
         response = json.loads(json.dumps(meal.json_dump()))
-        print(response)
         return {"status": "success", "message": response}, 201
 
     
