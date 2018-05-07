@@ -1,0 +1,288 @@
+FORMAT: 1A
+HOST: https://quantum-book-a-meal-app.herokuapp.com/
+
+# bookameal
+
+Book-A-Meal is an application that allows customers to make food orders and helps 
+the food vendor know what the customers want to eat.
+
+#Group Authentication
+
+## Signup [/api/v1/auth/signup]
+
+### Signup [POST]
+
++ Request (application/json)
+
+        {
+            "user_id": 1,
+            "username": "Quantum",
+            "password" : "secret"
+        
+        }
++ Response 200 (application/json) 
+        
+        {
+           "message" : "Signed Up Successfully" 
+        }
+        
+## Login [/api/v1/auth/login]
+
+### login [POST]
+
++ Request (application/json)
+
+        {
+            "user_id": 1,
+            "username": "Quantum",
+            "password" : "secret"
+        
+        }
++ Response 200 (application/json) 
+        
+        {
+           "message" : "Logged in Successfully" 
+        }
+
+## Logout [/api/v1/auth/logout]
+
+### logout['POST']
+
++ Response 200 (application/json) 
+        
+        {
+           "message" : "Logged in Successfully" 
+        }
+
+
+# Group Dashboard
+
+## Meals [/api/v1/meals/]
+
+### getmeals [ GET ]
+
++ Response 200 (application/json)
+
+        {
+            "meal_id" : 1,
+            "name" : "KUkU",
+            "price" : 1000
+        
+        }
+### addmeal [ POST ]
+
++ Request (application/json)
+
+        {
+            "meal_id": 1,
+            "name": "Rice",
+            "price" : 500
+        
+        }
++ Response 200 (application/json) 
+        
+        {
+            "meal_id": 1,
+            "name": "Rice",
+            "price" : 500
+        
+        }
+
+## Meals [/api/v1/meals/{id}]
+
+
+### editmeal [PUT]
+
++ Request (application/json)
+
+        {
+            "meal_id": 1,
+            "name": "Rice",
+            "price" : 500
+        
+        }
+        
++ Response 200 (application/json) 
+
+    + Headers
+
+            Location: /meals/2
+
+    + Body
+
+            [
+                {
+                    "meal_Cartegory":{
+                                    "meal_id":1,
+                                    "name": "Chips",
+                                    "price": 100
+                                }
+                }
+            ]        
+        
+### delete [DELETE]
+
++ Request (application/json)
+        
+    + Headers
+
+            Location: /meals/1
+
+    + Body
+
+            {
+            
+                "meal_id":1,
+                "name": "Chips",
+                "price": 100
+                          
+            }
+            
+            
++ Response 200 (application/json) 
+        
+        {
+            "meal_id": 1,
+            "name": "Rice",
+            "price" : 500
+        
+        }
+        
+
+        
+        
+## Menu [/api/v1/menu/]
+
+### set menu of the day [POST]
+
++ Request (application/json)
+
+            {
+                "menu_id": 1,
+                "name":"Breakfast",
+                "pice":15000,
+                "cartegory":"Breakfast",
+                "day" : "Jan 2018"
+            
+            }
++ Response 200 (application/json)
+
+            {
+                "menu_id": 1,
+                "name":"Breakfast",
+                "pice":15000,
+                "cartegory":"Breakfast",
+                "day" : "Jan 2018"
+            
+            }
+
+### Get all meals [GET]
+
++ Response 200 (application/json)
+
+            {
+                "menu_id": 1,
+                "name":"Breakfast",
+                "pice":15000,
+                "cartegory":"Breakfast",
+                "day" : "Jan 2018"
+            
+            }
+            
+## Orders [/api/v1/orders]
+
+### make Order [POST]
+    
++ Request (application/json)
+
+            {
+                "order_id": 1,
+                "name":"fridays Order",
+                "pice":15000
+                "day" : "Jan 2018"
+            
+            }
+            
++ Response 200 (application/json)
+
+            {
+                "order_id": 1,
+                "name":"fridays Order",
+                "pice":15000
+                "day" : "Jan 2018"
+            
+            }
+            
+### get all Orders [GET]
+    
++ Response 200 (application/json)
+
+        {
+            "order_id": 1,
+            "name":"fridays Order",
+            "pice":15000
+            "day" : "Jan 2018"
+        
+        }
+        
+
+    
+## Orders [/api/v1/orders/{id}]
+
+
+### editmeal [PUT]
+
++ Request (application/json)
+
+        {
+            "order_id": 1,
+            "name":"fridays Order",
+            "pice":15000
+            "day" : "Jan 2018"
+        
+        }
+        
++ Response 200 (application/json) 
+
+    + Headers
+
+            Location: /orders/2
+
+    + Body
+
+            [
+                {
+                    "order_id": 1,
+                    "name":"fridays Order",
+                    "pice":15000
+                    "day" : "Jan 2018"
+                }
+            ]        
+        
+### delete [DELETE]
+
++ Request (application/json)
+        
+    + Headers
+
+            Location: /orders/1
+
+    + Body
+
+            {
+                 "order_id": 1,
+                "name":"fridays Order",
+                "pice":15000
+                "day" : "Jan 2018"
+                          
+            }
+            
+            
++ Response 200 (application/json) 
+        
+        {
+            "meal_id": 1,
+            "name": "Rice",
+            "price" : 500
+        
+        }
