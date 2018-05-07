@@ -1,5 +1,5 @@
 from os import getenv
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask_restful import Api
 from datetime import timedelta
 from flask_jwt_extended import (
@@ -29,6 +29,10 @@ def create_app(config_filename):
 
     from app.models import db
     db.init_app(app)
+
+    @app.route('/')
+    def api_docs():
+        return send_from_directory('../docs/', 'apiary.html')
 
     api.add_resource(Signup, '/api/v2/auth/signup')
     api.add_resource(Login, '/api/v2/auth/login')

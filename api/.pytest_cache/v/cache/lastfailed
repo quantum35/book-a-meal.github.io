@@ -1,1 +1,7 @@
-{}
+{
+  "test/test_authentication.py::TestAuthenitication::test_already_registered_user": true,
+  "test/test_authentication.py::TestAuthenitication::test_login": true,
+  "test/test_authentication.py::TestAuthenitication::test_non_registered_user_login": true,
+  "test/test_authentication.py::TestAuthenitication::test_registration": true,
+  "test/test_meals.py::TestMeal::test_create_meals": true
+}

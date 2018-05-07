@@ -1,0 +1,138 @@
+FORMAT: 1A
+
+HOST: http://127.0.0.1:5000/api/v2
+
+
+# Book_A_Meal API
+Book_A_Meal is an application that allows customers to make food orders and helps the food vendor know what the customers want to eat.
+This is the api docs for the app.
+
+
+# Group Meals
+
+Resources related to the meals in the API.
+
+## Meals Collection [/meals]
+
+### List All Meals [GET]
+
++ Response 200 (application/json)
+
+
+### Create a New Meal [POST]
+
++ Attributes
+    + name: `lunch` (string) - Meal name
+
++ Request (application/json)
+
+        {
+          "name": "lunch"
+        }
+
++ Response 201 (application/json)
+
+    
+
+## Meal [/meals/{id}]
+
++ Parameters
+
+  + id: `1` (number) - ID if the meal
+
+### Edit a Meal [PUT]
+
++ Attributes
+    + description: `lunch` (string) - Meal name
+
++ Request (application/json)
+
+        {
+          "name": "lunch"
+        }
+
++ Response 200 (application/json)
+
+
+### Delete a Meal [DELETE]
+
++ Response 204
+
+# Group Menus
+
+Resources related to the menus in the API.
+
+## Menus Collection [/menus]
+
+### List All Menus [GET]
+
++ Response 200 (application/json)
+
+
+### Create a New Meal [POST]
+
++ Request (application/json)
+
++ Response 201 (application/json)
+
+# Group Orders
+
+Resources related to the Orders in the API.
+
+## Orders Collection [/orders]
+
+### List All Orders [GET]
+
++ Response 200 (application/json)
+
+
+### Create a New Order [POST]
+
++ Request (application/json)
+
++ Response 201 (application/json)
+
+    
+
+## Order [/orders/{id}]
+
++ Parameters
+
+  + id: `1` (number) - ID if the meal
+
+### Edit an Order [PUT]
+
+
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+
+### Delete an order [DELETE]
+
++ Response 204
+
+# Group Registration
+
+Resources related to User Registration in the API.
+
+## SignUp Collection [/auth/register]
+
+### Create a New User [POST]
+
++ Request (application/json)
+
++ Response 201 (application/json)
+
+# Group Login
+
+Resources related to User Login in the API.
+
+## Login Collection [/auth/login]
+
+### User Login [POST]
+
++ Request (application/json)
+
++ Response 201 (application/json)
